@@ -15,6 +15,7 @@ Normative specifications (Genesis):
 - `core/lite/`: Core Lite canonical spec
 - `rfcs/`: RFC 0001–0008
 - `docs/`: Architecture + Governance docs
+- 60-second runtime proof: [docs/demo-run.md](docs/demo-run.md)
 
 Non-normative historical material:
 
