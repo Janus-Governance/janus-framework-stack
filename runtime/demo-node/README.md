@@ -1,5 +1,7 @@
 # Janus Governance Core — Demo Runtime (Node)
 
+Reference Runtime: v0.1.0
+
 This minimal demo proves:
 
 1) Append domain activity to `MANAGEMENT_LOG`
@@ -14,8 +16,14 @@ From this folder:
 
 - `node demo.js`
 
+From repo root:
+
+- `node runtime/demo-node/demo.js`
+
 ## Expected behavior
 
 - Flow A (omission): appends `CHANGE_PROPOSED`, evaluates, emits `OMISSION_DETECTED` with `E-` into `AUDIT_LOG`
 - Flow B (approved): appends `CHANGE_PROPOSED` + `HUMAN_DECISION`, evaluates, emits `HUMAN_DECISION_REGISTERED` with `E+` into `AUDIT_LOG`
 - Flow C (rebuild): rebuilds a minimal state only from logs and prints a summary object
+
+This runtime is a reference proof of the Janus Core Lite model, not a production runtime.
