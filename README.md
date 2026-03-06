@@ -10,20 +10,15 @@ Janus is not:
 
 ### Repository map
 
-Normative specifications and reference material:
-- `core/`: Core specifications (protocols, policies, canonical semantics)
-- `framework/`: Framework specifications (e.g., gates and reference model)
-- `docs/`: Working technical documentation for this repository
+Normative specifications (Genesis):
 
-Implementations and integration surfaces:
-- `runtimes/`: Runtime implementations (non-normative to Core semantics)
-- `adapters/`: Storage/transport adapters
-- `sdk/`: Developer SDKs and integration helpers
+- `core/lite/`: Core Lite canonical spec
+- `rfcs/`: RFC 0001–0008
+- `docs/`: Architecture + Governance docs
 
-Knowledge spaces (non-normative unless explicitly stated):
-- `papers/`: Background, analysis, and research notes
-- `studies/`: Experiments, logs, and results
-- `philosophy/`: Canon and essays
+Non-normative historical material:
+
+- `archive/`: Out-of-scope for Genesis semantics
 
 ### High-level principles
 
