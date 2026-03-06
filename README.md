@@ -20,6 +20,13 @@ Non-normative historical material:
 
 - `archive/`: Out-of-scope for Genesis semantics
 
+### Reference Runtime Demo
+
+Janus includes a minimal executable Node demo proving governance evaluation, omission detection, audit writing, and deterministic rebuild.
+
+- [runtime/demo-node/README.md](runtime/demo-node/README.md)
+- Run: `node runtime/demo-node/demo.js`
+
 ### High-level principles
 
 - Stack-agnostic Core: Core definitions avoid runtime or vendor assumptions.
