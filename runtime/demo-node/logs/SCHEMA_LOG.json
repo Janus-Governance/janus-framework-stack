@@ -1,0 +1,13 @@
+[
+  {
+    "id": "schema-001",
+    "ts": "2026-03-06T00:00:00.000Z",
+    "entity": "change_request",
+    "version": 1,
+    "fields": [
+      "change",
+      "actor",
+      "decision"
+    ]
+  }
+]

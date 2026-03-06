@@ -1,0 +1,11 @@
+{
+  "name": "janus-demo-node",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal executable demo runtime for Janus Governance Core",
+  "main": "demo.js",
+  "scripts": {
+    "start": "node demo.js"
+  },
+  "license": "MIT"
+}

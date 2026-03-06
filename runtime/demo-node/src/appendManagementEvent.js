@@ -1,0 +1,25 @@
+const fs = require("fs");
+
+function readJsonArray(filePath) {
+  const raw = fs.readFileSync(filePath, "utf8");
+  const parsed = JSON.parse(raw);
+  if (!Array.isArray(parsed)) {
+    throw new Error(`Expected JSON array in ${filePath}`);
+  }
+  return parsed;
+}
+
+function writeJsonArray(filePath, value) {
+  fs.writeFileSync(filePath, JSON.stringify(value, null, 2) + "\n", "utf8");
+}
+
+function appendManagementEvent(managementLogPath, event) {
+  const events = readJsonArray(managementLogPath);
+  events.push(event);
+  writeJsonArray(managementLogPath, events);
+  return event;
+}
+
+module.exports = {
+  appendManagementEvent,
+};
