@@ -85,7 +85,15 @@
       .contents-list li {
         padding: 6px 0;
         border-bottom: 1px solid #111;
+      }
+
+      .contents-list a {
         color: #cfcfcf;
+      }
+
+      .contents-list a:hover,
+      .contents-list a:focus {
+        color: #fff;
       }
     </style>
   </head>
@@ -96,11 +104,12 @@
       <section class="contents-section" aria-label="Runtime contents">
         <h2 class="contents-title">Contents</h2>
         <ul class="contents-list">
-          <li>demo-node/</li>
-          <li>index.html</li>
+          <li><a href="demo-node/">/runtime/demo-node/</a></li>
+          <li><a href="demo-node/README.md">/runtime/demo-node/README.md</a></li>
+          <li><a href="demo-node/demo.js">/runtime/demo-node/demo.js</a></li>
         </ul>
       </section>
-      <a class="back" href="/">Back to /</a>
+      <a class="back" href="/">Back to home</a>
     </main>
   </body>
 </html>
