@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Janus Demo — 60 Second Proof</title>
+    <meta name="description" content="Demo run — Janus docs." />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 56px 20px 64px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: #cfcfcf;
+        font-size: 0.98rem;
+        text-decoration: none;
+      }
+
+      .back:hover,
+      .back:focus {
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 18px;
+        text-align: left;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+        margin: 24px 0 10px;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 650;
+        margin: 18px 0 8px;
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: #cfcfcf;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 14px;
+        padding-left: 22px;
+        color: #cfcfcf;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+          "Courier New", monospace;
+        font-size: 0.95em;
+        color: #fff;
+        background: #111;
+        padding: 0.15em 0.35em;
+        border-radius: 6px;
+      }
+
+      pre {
+        margin: 0 0 14px;
+        padding: 12px 14px;
+        background: #0b0b0b;
+        border: 1px solid #1a1a1a;
+        border-radius: 10px;
+        overflow: auto;
+      }
+
+      pre code {
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        color: #cfcfcf;
+      }
+
+      blockquote {
+        margin: 0 0 14px;
+        padding: 10px 14px;
+        border-left: 3px solid #222;
+        background: #0b0b0b;
+        border-radius: 8px;
+      }
+
+      blockquote p {
+        margin: 0;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid #111;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <a class="back" href="/docs/">Back to docs</a>
+      <h1>Janus Demo — 60 Second Proof</h1>
+      <h2>1. What this proves</h2>
+<p>This demo validates:</p>
+<ul><li>governance evaluation</li><li>omission detection</li><li>human authority registration</li><li>audit writing</li><li>deterministic rebuild</li></ul>
+<h2>2. Run</h2>
+<p>node runtime/demo-node/demo.js</p>
+<h2>3. Expected output</h2>
+<p>FLOW A — omission case { "requiredEvent": "HUMAN_DECISION", "proposedChanges": 1, "humanDecisionPresent": false, "auditEventsWritten": [ "OMISSION_DETECTED" ] }</p>
+<p>REBUILD STATE { "proposedChanges": 1, "humanDecisionPresent": false, "omissionsDetected": 1, "auditEvents": 1 }</p>
+<p>FLOW B — approved case { "requiredEvent": "HUMAN_DECISION", "proposedChanges": 1, "humanDecisionPresent": true, "auditEventsWritten": [ "HUMAN_DECISION_REGISTERED" ] }</p>
+<p>FLOW C — rebuild { "proposedChanges": 1, "humanDecisionPresent": true, "omissionsDetected": 0, "auditEvents": 1 }</p>
+<h2>4. Interpretation</h2>
+<ul><li>Janus does not only log activity</li><li>it evaluates governance conditions</li><li>records omission as structured evidence</li><li>preserves human authority</li><li>rebuilds state from logs</li></ul>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Glossary (Normative)</title>
+    <meta name="description" content="Glossary — Janus docs." />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 56px 20px 64px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: #cfcfcf;
+        font-size: 0.98rem;
+        text-decoration: none;
+      }
+
+      .back:hover,
+      .back:focus {
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 18px;
+        text-align: left;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+        margin: 24px 0 10px;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 650;
+        margin: 18px 0 8px;
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: #cfcfcf;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 14px;
+        padding-left: 22px;
+        color: #cfcfcf;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+          "Courier New", monospace;
+        font-size: 0.95em;
+        color: #fff;
+        background: #111;
+        padding: 0.15em 0.35em;
+        border-radius: 6px;
+      }
+
+      pre {
+        margin: 0 0 14px;
+        padding: 12px 14px;
+        background: #0b0b0b;
+        border: 1px solid #1a1a1a;
+        border-radius: 10px;
+        overflow: auto;
+      }
+
+      pre code {
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        color: #cfcfcf;
+      }
+
+      blockquote {
+        margin: 0 0 14px;
+        padding: 10px 14px;
+        border-left: 3px solid #222;
+        background: #0b0b0b;
+        border-radius: 8px;
+      }
+
+      blockquote p {
+        margin: 0;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid #111;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <a class="back" href="/docs/">Back to docs</a>
+      <h1>Glossary (Normative)</h1>
+      <p>This glossary defines canonical meanings for terms used by Janus specifications in this repository.</p>
+<p>Semantic stability rule: when a term in this glossary is changed, any dependent specification text MUST be reviewed and updated accordingly.</p>
+<h2>Conventions</h2>
+<ul><li>Capitalized tokens (e.g., <code>AUDIT_LOG</code>, <code>OMISSION_DETECTED</code>) denote canonical identifiers.</li><li>RFC 2119 keywords (MUST, SHOULD, MAY) are used for normative requirements.</li></ul>
+<h2>Canonical terms</h2>
+<h3>Adapter</h3>
+<p>A component that maps between Janus runtime interfaces and an external storage or transport surface.</p>
+<p>Adapters do not define Core semantics; they implement a mapping.</p>
+<h3><code>AUDIT_LOG</code></h3>
+<p>An append-only log that records audit-relevant events, evaluations, and attestations needed to support review.</p>
+<p><code>AUDIT_LOG</code> entries MAY reference records from <code>MANAGEMENT_LOG</code> and <code>SCHEMA_LOG</code> when relevant, and MAY also represent governance events that do not originate in those logs (e.g., <code>OMISSION_DETECTED</code>).</p>
+<p>An <code>AUDIT_LOG</code> entry MAY record:</p>
+<ul><li>gate outcomes and their explanations (<code>gates</code>)</li><li>risk classifications (e.g., R2) and escalation/handling outcomes</li><li>explicit human accountability events (<code>HUMAN_DECISION</code>)</li><li>omission findings (<code>OMISSION_DETECTED</code>) and their supporting omission evidence (E−)</li></ul>
+<p><code>AUDIT_LOG</code> entries SHOULD preserve linkability to the originating expectations, scopes, and referenced artifacts.</p>
+<h3>contractRef</h3>
+<p>A stable reference to an external rule source that is outside the Janus repository (e.g., policy text, contract clause, regulation section, internal procedure).</p>
+<p><code>contractRef</code> is a reference mechanism only. It does not import external text into Core semantics.</p>
+<h3>E+ (explicit evidence)</h3>
+<p>Evidence explicitly recorded in a system of record.</p>
+<p>E+ indicates that a claim or event is supported by a recorded artifact.</p>
+<h3>E− (omission evidence)</h3>
+<p>Evidence derived from a verified absence of an expected record.</p>
+<p>E− requires:</p>
+<ul><li>a defined expectation</li><li>a deterministic search scope</li><li>a reproducible observation showing the record is missing.</li></ul>
+<p>E− is not counter-argumentation. It represents a verified omission relative to an explicit expectation.</p>
+<h3>gates</h3>
+<p>Framework-defined checks that mediate state transitions or outputs.</p>
+<p>A gate consumes inputs (e.g., proposed actions, evidence sets, risk flags) and produces a decision (allow, block, require escalation) plus an auditable explanation.</p>
+<h3><code>HUMAN_DECISION</code></h3>
+<p>A canonical event indicating that a designated human authority has made or confirmed a decision.</p>
+<p>When a specification requires human accountability, the system MUST record a <code>HUMAN_DECISION</code> and MUST NOT substitute it with an automated inference.</p>
+<h3>Management</h3>
+<p>The superset organizational context in which decisions, actions, and accountability occur.</p>
+<p>Examples include government, project, education, and business contexts.</p>
+<h3><code>MANAGEMENT_LOG</code></h3>
+<p>An append-only log of management-relevant events.</p>
+<p>Typical entries include proposals, actions, decisions (including <code>HUMAN_DECISION</code>), assignments, exceptions, and references to evidence artifacts.</p>
+<h3><code>OMISSION_DETECTED</code></h3>
+<p>A canonical event type indicating that an expected record, state, or linkage is missing.</p>
+<p>An <code>OMISSION_DETECTED</code> event MUST include enough context to support E− (omission evidence), including: the expectation definition, the deterministic search scope, the reproducible observation that the expected record is absent, and the scope/time window to which the omission applies.</p>
+<h3>R2</h3>
+<p>A risk classification indicating that a matter requires heightened controls.</p>
+<p>At minimum, R2 handling MUST require explicit escalation rules and MUST support human final authority where accountability is required.</p>
+<h3>Runtime</h3>
+<p>An execution environment that runs a Janus workflow or protocol implementation.</p>
+<p>Runtimes implement the Core and Framework specifications but do not redefine their semantics.</p>
+<h3><code>SCHEMA_LOG</code></h3>
+<p>An append-only log that defines schema declarations and schema versions used to interpret other logs.</p>
+<p>If an event format or meaning depends on a schema version, the relevant <code>SCHEMA_LOG</code> entry MUST be referencable from the consuming record.</p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What is Janus?</title>
+    <meta name="description" content="Janus explained — Janus docs." />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 56px 20px 64px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: #cfcfcf;
+        font-size: 0.98rem;
+        text-decoration: none;
+      }
+
+      .back:hover,
+      .back:focus {
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 18px;
+        text-align: left;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+        margin: 24px 0 10px;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 650;
+        margin: 18px 0 8px;
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: #cfcfcf;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 14px;
+        padding-left: 22px;
+        color: #cfcfcf;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+          "Courier New", monospace;
+        font-size: 0.95em;
+        color: #fff;
+        background: #111;
+        padding: 0.15em 0.35em;
+        border-radius: 6px;
+      }
+
+      pre {
+        margin: 0 0 14px;
+        padding: 12px 14px;
+        background: #0b0b0b;
+        border: 1px solid #1a1a1a;
+        border-radius: 10px;
+        overflow: auto;
+      }
+
+      pre code {
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        color: #cfcfcf;
+      }
+
+      blockquote {
+        margin: 0 0 14px;
+        padding: 10px 14px;
+        border-left: 3px solid #222;
+        background: #0b0b0b;
+        border-radius: 8px;
+      }
+
+      blockquote p {
+        margin: 0;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid #111;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <a class="back" href="/docs/">Back to docs</a>
+      <h1>What is Janus?</h1>
+      <h2>1. Overview</h2>
+<p>Janus is a governance core for systems where humans, software, and AI participate in decision processes.</p>
+<p>Janus does not execute business logic. It governs how system evolution is evaluated, recorded, and reconstructed.</p>
+<h2>2. The Problem</h2>
+<p>Most systems record what happened. Very few systems record what should have happened but did not.</p>
+<p>This becomes critical in systems involving automation and AI, where omissions and missing validations can create risk.</p>
+<h2>3. The Janus Approach</h2>
+<p>Key ideas:</p>
+<ul><li>governance events</li><li>evidence model (E+ / E-)</li><li>human authority</li><li>audit writer boundary</li><li>deterministic rebuild</li></ul>
+<p>Janus evaluates governance conditions rather than application logic.</p>
+<h2>4. What Janus Is Not</h2>
+<p>Janus is not:</p>
+<ul><li>a framework</li><li>a workflow engine</li><li>an orchestration system</li><li>an application platform</li></ul>
+<p>Janus is a governance layer that can operate above many different systems.</p>
+<h2>5. How It Works</h2>
+<p>activity → evaluation → governance event → audit log → rebuildable state</p>
+<h2>6. Reference Runtime</h2>
+<p>runtime/demo-node/</p>
+<p>It demonstrates the model with a minimal executable implementation.</p>
+<h2>7. Principle</h2>
+<p>Janus governs system evolution. Runtimes execute governance evaluation.</p>
+    </main>
+  </body>
+</html>
