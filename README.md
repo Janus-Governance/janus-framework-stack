@@ -45,7 +45,7 @@ Links:
 - [docs/janus-explained.md](docs/janus-explained.md)
 - [docs/runtime-model.md](docs/runtime-model.md)
 - [docs/demo-run.md](docs/demo-run.md)
-- [runtime/demo-node/](runtime/demo-node/)
+- [runtimes/demo-node/](runtimes/demo-node/)
 
 ### Repository map
 
@@ -64,8 +64,8 @@ Non-normative historical material:
 
 Janus includes a minimal executable Node demo proving governance evaluation, omission detection, audit writing, and deterministic rebuild.
 
-- [runtime/demo-node/README.md](runtime/demo-node/README.md)
-- Run: `node runtime/demo-node/demo.js`
+- [runtimes/demo-node/README.md](runtimes/demo-node/README.md)
+- Run: `node runtimes/demo-node/demo.js`
 
 ### High-level principles
 

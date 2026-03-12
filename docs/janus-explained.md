@@ -41,7 +41,7 @@ activity → evaluation → governance event → audit log → rebuildable state
 
 ## 6. Reference Runtime
 
-runtime/demo-node/
+runtimes/demo-node/
 
 It demonstrates the model with a minimal executable implementation.
 

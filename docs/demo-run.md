@@ -11,7 +11,7 @@ This demo validates:
 
 ## 2. Run
 
-node runtime/demo-node/demo.js
+node runtimes/demo-node/demo.js
 
 ## 3. Expected output
 

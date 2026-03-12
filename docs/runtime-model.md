@@ -15,7 +15,7 @@ The current Node demo runtime is a reference implementation proving:
 
 Location:
 
-runtime/demo-node/
+runtimes/demo-node/
 
 It is intentionally minimal and designed for demonstration.
 

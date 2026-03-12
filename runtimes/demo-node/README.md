@@ -18,7 +18,7 @@ From this folder:
 
 From repo root:
 
-- `node runtime/demo-node/demo.js`
+- `node runtimes/demo-node/demo.js`
 
 ## Expected behavior
 
