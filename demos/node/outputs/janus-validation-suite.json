@@ -1,0 +1,131 @@
+{
+  "suite_name": "Janus Validation Suite (Core Lite)",
+  "evaluated_at": "2026-03-13T00:00:00.000Z",
+  "total_cases": 6,
+  "passed_cases": 6,
+  "failed_cases": 0,
+  "overall_status": "PASS",
+  "cases": [
+    {
+      "case_id": "case-01-happy-path",
+      "expected_invariants": {
+        "positive_evidence_present": true,
+        "omission_detected": false,
+        "audit_decision": "pass-equivalent"
+      },
+      "observed_status": {
+        "positive_evidence_present": true,
+        "negative_evidence_present": false,
+        "omission_detected": false,
+        "human_decision_registered": true,
+        "audit_decision": "pass-equivalent",
+        "audit_event_types": [
+          "HUMAN_DECISION_REGISTERED"
+        ],
+        "human_decision_present": true,
+        "failures": []
+      },
+      "pass": true
+    },
+    {
+      "case_id": "case-02-omission",
+      "expected_invariants": {
+        "negative_evidence_present": true,
+        "omission_detected": true,
+        "audit_decision": "fail-equivalent"
+      },
+      "observed_status": {
+        "positive_evidence_present": false,
+        "negative_evidence_present": true,
+        "omission_detected": true,
+        "human_decision_registered": false,
+        "audit_decision": "fail-equivalent",
+        "audit_event_types": [
+          "OMISSION_DETECTED"
+        ],
+        "human_decision_present": false,
+        "failures": []
+      },
+      "pass": true
+    },
+    {
+      "case_id": "case-03-human-decision",
+      "expected_invariants": {
+        "omission_detected": true,
+        "human_decision_present": true,
+        "omission_truth_preserved": true,
+        "audit_decision": "accepted-with-human-exception"
+      },
+      "observed_status": {
+        "positive_evidence_present": true,
+        "negative_evidence_present": true,
+        "omission_detected": true,
+        "human_decision_registered": true,
+        "audit_decision": "accepted-with-human-exception",
+        "audit_event_types": [
+          "OMISSION_DETECTED",
+          "HUMAN_DECISION_REGISTERED"
+        ],
+        "human_decision_present": true,
+        "omission_truth_preserved": true,
+        "failures": []
+      },
+      "pass": true
+    },
+    {
+      "case_id": "case-04-schema-drift",
+      "expected_invariants": {
+        "positive_evidence_present": true,
+        "negative_evidence_present": true,
+        "omission_detected": true,
+        "notes_includes": "schema drift"
+      },
+      "observed_status": {
+        "positive_evidence_present": true,
+        "negative_evidence_present": true,
+        "omission_detected": true,
+        "human_decision_registered": true,
+        "audit_decision": "accepted-with-human-exception",
+        "audit_event_types": [
+          "OMISSION_DETECTED",
+          "HUMAN_DECISION_REGISTERED"
+        ],
+        "human_decision_present": true,
+        "notes": "schema drift: schema updated from v1 (no decision) to v2 (adds decision)",
+        "failures": []
+      },
+      "pass": true
+    },
+    {
+      "case_id": "case-05-stress",
+      "expected_invariants": {
+        "deployments_checked": 1000,
+        "deployments_missing_evidence": 50,
+        "deterministic_result": true
+      },
+      "observed_status": {
+        "deployments_checked": 1000,
+        "deployments_missing_evidence": 50,
+        "deterministic_result": true,
+        "result_fingerprint": "9e6bf56ae43045f11ada8c040cbbf4995d5e61a8a374572fed139e2e813625a1",
+        "failures": []
+      },
+      "pass": true
+    },
+    {
+      "case_id": "case-06-deterministic-rebuild",
+      "expected_invariants": {
+        "replay_count": 2,
+        "outputs_identical": true,
+        "deterministic_rebuild": true
+      },
+      "observed_status": {
+        "replay_count": 2,
+        "outputs_identical": true,
+        "deterministic_rebuild": true,
+        "failures": []
+      },
+      "pass": true
+    }
+  ]
+}

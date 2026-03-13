@@ -34,7 +34,7 @@ Janus is not:
 
 ## Latest Updates
 
-- Reference runtime demo (Node) demonstrating the Janus governance model
+- Deterministic validation suite (Node) demonstrating reproducible Janus Core Lite cases
 - 60-second executable proof of the system
 - Runtime model documentation
 - "What is Janus" overview document
@@ -60,12 +60,17 @@ Non-normative historical material:
 
 - `archive/`: Out-of-scope for Genesis semantics
 
-### Reference Runtime Demo
+### Deterministic Validation Suite (Node)
 
-Janus includes a minimal executable Node demo proving governance evaluation, omission detection, audit writing, and deterministic rebuild.
+This repository includes a minimal, portable deterministic validation suite proving governance evaluation, omission detection, audit writing, and deterministic rebuild.
 
 - [runtimes/demo-node/README.md](runtimes/demo-node/README.md)
 - Run: `node runtimes/demo-node/demo.js`
+- Suite: `node demos/node/src/run-suite.js`
+
+The suite writes a deterministic summary report to:
+
+- `demos/node/outputs/janus-validation-suite.json`
 
 ### High-level principles
 
