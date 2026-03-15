@@ -1,0 +1,16 @@
+{
+  "name": "janus-framework-demo",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Local-only demo framework: minimal Janus-style micro-layer scaffold (TypeScript).",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node dist/scripts/test-demo.js",
+    "demo": "npm run build && node dist/src/app.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "typescript": "^5.8.2"
+  }
+}

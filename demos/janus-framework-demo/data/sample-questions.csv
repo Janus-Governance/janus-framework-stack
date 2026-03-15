@@ -1,0 +1,4 @@
+kind,sourceId,question,choiceA,choiceB,choiceC,choiceD,answer,tags
+quiz_question,q1,What is Janus primarily designed to preserve?,Speed,Traceability,Opacity,Randomness,B,"governance;evidence"
+quiz_question,q2,What does E− represent in Janus?,Positive evidence,An omission / absence of required evidence,A database error,A runtime crash,B,"evidence;omission"
+quiz_question,q3,What is the authority boundary event in Janus?,AUTO_DECISION,HUMAN_DECISION,SCHEMA_UPDATE,COMPILE_OK,B,"authority;accountability"
