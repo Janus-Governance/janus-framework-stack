@@ -1,0 +1,6 @@
+node_modules/
+dist/
+
+# Demo / runtime artifacts
+inbox/prompt.json
+outbox/result.json

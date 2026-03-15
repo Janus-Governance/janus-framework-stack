@@ -1,0 +1,17 @@
+{
+  "name": "janus-bridge",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Experimental local-only bridge MVP for Janus event logging and deterministic prompt/result files.",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "bridge": "node dist/index.js bridge",
+    "demo": "node dist/index.js demo"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "typescript": "^5.8.2"
+  }
+}
