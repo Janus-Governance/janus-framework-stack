@@ -1,0 +1,41 @@
+{
+  "name": "janus-vscode-connector",
+  "displayName": "Janus VS Code Connector (Experimental)",
+  "description": "Experimental VS Code developer tooling for observing Janus event streams. Not part of Janus Core.",
+  "version": "0.0.1",
+  "private": true,
+  "publisher": "janus-dev",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:janus.startFlowViewer",
+    "onCommand:janus.selectFlowViewerFolder"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "janus.startFlowViewer",
+        "title": "Janus: Start Flow Viewer"
+      },
+      {
+        "command": "janus.selectFlowViewerFolder",
+        "title": "Janus: Select Flow Viewer Folder"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p tsconfig.json",
+    "watch": "tsc -w -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.8.2",
+    "vscode": "^1.1.37"
+  }
+}
