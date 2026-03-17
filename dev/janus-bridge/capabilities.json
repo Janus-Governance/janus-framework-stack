@@ -1,0 +1,37 @@
+{
+  "capabilities": [
+    {
+      "action": "create_file",
+      "name": "Create File",
+      "description": "MVP: validates a create_file prompt (requires payload.path + payload.description). On success, executes by creating parent directories as needed and writing payload.content (or an empty string if omitted) to the file at payload.path, resolved relative to the repository root.",
+      "allowedActors": ["janus-bridge"],
+      "approvalRequired": false,
+      "allowedPathScopes": ["repoRoot"],
+      "requiredPayloadFields": ["path", "description"],
+      "optionalPayloadFields": ["content"],
+      "resultStatuses": ["rejected", "validated", "executed"]
+    },
+    {
+      "action": "read_file",
+      "name": "Read File",
+      "description": "Read a file from the repository root",
+      "requiredPayloadFields": ["path"],
+      "optionalPayloadFields": [],
+      "resultStatuses": ["rejected", "validated", "executed"],
+      "allowedActors": ["janus-bridge"],
+      "approvalRequired": false,
+      "allowedPathScopes": ["repoRoot"]
+    },
+    {
+      "action": "append_event",
+      "name": "Append Event",
+      "description": "Append a JSON line event to dev/janus-bridge/logs/events.log (append-only).",
+      "requiredPayloadFields": ["event_type", "event_data"],
+      "optionalPayloadFields": ["actor_ref", "scope_ref"],
+      "resultStatuses": ["rejected", "validated", "executed"],
+      "allowedActors": ["janus-bridge"],
+      "approvalRequired": false,
+      "allowedPathScopes": ["projectRoot"]
+    }
+  ]
+}
