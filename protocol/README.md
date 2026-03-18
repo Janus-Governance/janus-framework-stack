@@ -9,24 +9,24 @@ Stack entrypoint: evidence-first.md
 - Does not modify or redefine Janus Core or RFCs.
 
 ## Files
-- prompt-governance.md
 - evidence-first.md
+- prompt-governance.md
+- human-gate-rules.md
 - duplicate-prompt-guard.md
 - frontend-link-governance.md
 - runtime-intervention-rules.md
-- human-gate-rules.md
 
 ## Protocol Stack Order
 
-1. evidence-first.md
-2. prompt-governance.md
-3. human-gate-rules.md
-4. omission-response.md
-5. core-protection.md
-6. repo-structure-governance.md
-7. duplicate-prompt-guard.md
-8. frontend-link-governance.md
-9. runtime-intervention-rules.md
+- evidence-first.md
+- prompt-governance.md
+- human-gate-rules.md
+- core-protection.md
+- omission-response.md
+- repo-structure-governance.md
+- duplicate-prompt-guard.md
+- frontend-link-governance.md
+- runtime-intervention-rules.md
 
 ## Operating principle
 Prefer deterministic, repeatable steps:
