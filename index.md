@@ -24,7 +24,7 @@ Official documentation entry point.
 </ul>
 
 <p>
-	<a href="https://github.com/Janus-Governance/janus-governance-core/blob/main/docs/demo-run.md">60-second demo proof</a>
+	<a href="https://core.janusgovernance.org/docs/demo-run.html">60-second demo proof</a>
 	·
 	<a href="https://github.com/Janus-Governance/janus-governance-core/tree/main/runtimes/demo-node">Reference runtime</a>
 </p>
