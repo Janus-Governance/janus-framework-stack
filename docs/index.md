@@ -42,4 +42,4 @@ Janus Governance Core defines stack-agnostic specifications for systems that req
 ## Repository
 
 GitHub repository  
-https://github.com/Janus-Governance/janus-governance-core
+https://github.com/Janus-Governance/janus-framework-stack

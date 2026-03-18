@@ -26,10 +26,10 @@ Official documentation entry point.
 <p>
 	<a href="https://core.janusgovernance.org/docs/demo-run.html">60-second demo proof</a>
 	·
-	<a href="https://github.com/Janus-Governance/janus-governance-core/tree/main/runtimes/demo-node">Reference runtime</a>
+	<a href="https://github.com/Janus-Governance/janus-framework-stack/tree/main/runtimes/demo-node">Reference runtime (View source)</a>
 </p>
 
 <pre><code>node runtimes/demo-node/demo.js</code></pre>
 
 ## Repository
-https://github.com/Janus-Governance/janus-governance-core
+https://github.com/Janus-Governance/janus-framework-stack
