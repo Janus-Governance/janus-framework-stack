@@ -12,6 +12,9 @@ Stack entrypoint: evidence-first.md
 - evidence-first.md
 - prompt-governance.md
 - human-gate-rules.md
+- core-protection.md
+- omission-response.md
+- repo-structure-governance.md
 - duplicate-prompt-guard.md
 - frontend-link-governance.md
 - runtime-intervention-rules.md
