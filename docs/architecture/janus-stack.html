@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Janus Stack (Architecture)</title>
+    <meta name="description" content="Janus Stack (Architecture) — Janus docs." />
+    <style>
+      :root { color-scheme: dark; }
+      body { margin: 0; padding: 0; background: #000; color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.6; }
+      .container { max-width: 800px; margin: 0 auto; padding: 56px 20px 64px; }
+      .back { display: inline-block; margin-bottom: 18px; color: #cfcfcf;
+        font-size: 0.98rem; text-decoration: none; }
+      .back:hover, .back:focus { color: #fff; text-decoration: underline;
+        text-underline-offset: 3px; }
+      h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em;
+        margin: 0 0 18px; text-align: left; }
+      h2 { font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em;
+        margin: 24px 0 10px; }
+      h3 { font-size: 1.1rem; font-weight: 650; margin: 18px 0 8px; }
+      h4 { font-size: 1.02rem; font-weight: 650; margin: 14px 0 6px; }
+      p { margin: 0 0 12px; color: #cfcfcf; }
+      a { color: #fff; text-decoration: none; }
+      a:hover, a:focus { text-decoration: underline; text-underline-offset: 3px; }
+      ul, ol { margin: 0 0 14px; padding-left: 22px; color: #cfcfcf; }
+      li { margin: 6px 0; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace; font-size: 0.95em;
+        color: #fff; background: #111; padding: 0.15em 0.35em; border-radius: 6px; }
+      pre { margin: 0 0 14px; padding: 12px 14px; background: #0b0b0b;
+        border: 1px solid #1a1a1a; border-radius: 10px; overflow: auto; }
+      pre code { padding: 0; background: transparent; border-radius: 0; color: #cfcfcf; }
+      blockquote { margin: 0 0 14px; padding: 10px 14px; border-left: 3px solid #222;
+        background: #0b0b0b; border-radius: 8px; }
+      blockquote p { margin: 0; }
+      hr { border: 0; border-top: 1px solid #111; margin: 20px 0; }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <a class="back" href="/docs/">Back to docs</a>
+      <h1>Janus Stack (Architecture)</h1>
+<p>Janus is a governance kernel and layered architecture for auditable systems operating in AI-assisted environments.</p>
+<p>This document defines the conceptual separation of layers in the Janus-Governance-Core repository.</p>
+<p>Normative note: where this document uses MUST/SHOULD/MAY, those statements apply to repository organization and interpretation rules. Core protocol requirements live under <code>core/</code>.</p>
+<h2>Layer separation</h2>
+<p>Janus is structured as a set of layers with explicit responsibilities.</p>
+<h3>Core</h3>
+<p>Location: <code>core/</code></p>
+<p>Core defines:</p>
+<ul>
+<li>Canonical terms and semantics (aligned with <code>docs/glossary.md</code>)</li>
+<li>Protocols and policy primitives</li>
+<li>Canonical log types and event identifiers (e.g., <code>MANAGEMENT_LOG</code>, <code>SCHEMA_LOG</code>, <code>AUDIT_LOG</code>, <code>OMISSION_DETECTED</code>)</li>
+</ul>
+<p>Core does not define:</p>
+<ul>
+<li>Runtime technologies, vendors, or deployment assumptions</li>
+<li>Storage engines, network transports, or UI constraints</li>
+</ul>
+<h3>Framework</h3>
+<p>Location: <code>framework/</code></p>
+<p>Framework defines:</p>
+<ul>
+<li>Reusable governance mechanisms that compose with Core semantics</li>
+<li>Gate patterns (<code>gates</code>) and reference models that constrain transitions and outputs</li>
+</ul>
+<p>Framework should remain compatible with multiple runtimes.</p>
+<h3>Runtimes</h3>
+<p>Location: <code>runtimes/</code></p>
+<p>Runtimes:</p>
+<ul>
+<li>Execute workflows that implement Core and Framework requirements</li>
+<li>Produce and consume records that conform to Core-defined semantics</li>
+</ul>
+<p>Runtimes MUST NOT redefine Core meanings.</p>
+<h3>Adapters</h3>
+<p>Location: <code>adapters/</code></p>
+<p>Adapters:</p>
+<ul>
+<li>Map runtime interfaces to external storage/transport surfaces</li>
+<li>Preserve the meaning of canonical records while providing interoperability</li>
+</ul>
+<p>Adapters MUST document any lossy mapping.</p>
+<h3>SDK</h3>
+<p>Location: <code>sdk/</code></p>
+<p>SDKs:</p>
+<ul>
+<li>Provide developer-facing helpers to integrate with a Janus runtime or adapter</li>
+<li>Improve ergonomics without altering Core semantics</li>
+</ul>
+<h2>Knowledge spaces</h2>
+<p>The repository separates normative specifications from supporting material.</p>
+<ul>
+<li><code>docs/</code>: Working documentation for this repository. The glossary is normative for term meanings.</li>
+<li><code>papers/</code>: Background analysis and research notes. Non-normative by default.</li>
+<li><code>studies/</code>: Experiments, logs, and results. Non-normative by default.</li>
+<li><code>philosophy/</code>: Canon and essays. Non-normative by default.</li>
+</ul>
+<p>If a document outside <code>core/</code> or <code>docs/</code> is intended to be normative, it MUST explicitly declare its normative scope.</p>
+<h2>Semantic stability rule (glossary-first)</h2>
+<p><code>docs/glossary.md</code> is the source of semantic truth for named terms used across layers.</p>
+<p>Rules: 1) A term used in Core, Framework, Runtimes, Adapters, or SDK text MUST have a stable meaning anchored in the glossary. 2) Changing a glossary definition MUST trigger review of dependent documents. 3) When meaning conflicts are discovered, the glossary MUST be updated first, then dependent specifications updated to match.</p>
+<p>This rule is intended to keep semantics stable while allowing implementations to evolve independently.</p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Janus Core Lite v0.1</title>
+    <meta name="description" content="Janus Core Lite v0.1 — rendered specification." />
+    <style>
+      :root { color-scheme: dark; }
+      body { margin: 0; padding: 0; background: #000; color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.6; }
+      .container { max-width: 800px; margin: 0 auto; padding: 56px 20px 64px; }
+      .back { display: inline-block; margin-bottom: 18px; color: #cfcfcf;
+        font-size: 0.98rem; text-decoration: none; }
+      .back:hover, .back:focus { color: #fff; text-decoration: underline;
+        text-underline-offset: 3px; }
+      h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em;
+        margin: 0 0 18px; text-align: left; }
+      h2 { font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em;
+        margin: 24px 0 10px; }
+      h3 { font-size: 1.1rem; font-weight: 650; margin: 18px 0 8px; }
+      h4 { font-size: 1.02rem; font-weight: 650; margin: 14px 0 6px; }
+      p { margin: 0 0 12px; color: #cfcfcf; }
+      a { color: #fff; text-decoration: none; }
+      a:hover, a:focus { text-decoration: underline; text-underline-offset: 3px; }
+      ul, ol { margin: 0 0 14px; padding-left: 22px; color: #cfcfcf; }
+      li { margin: 6px 0; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace; font-size: 0.95em;
+        color: #fff; background: #111; padding: 0.15em 0.35em; border-radius: 6px; }
+      pre { margin: 0 0 14px; padding: 12px 14px; background: #0b0b0b;
+        border: 1px solid #1a1a1a; border-radius: 10px; overflow: auto; }
+      pre code { padding: 0; background: transparent; border-radius: 0; color: #cfcfcf; }
+      blockquote { margin: 0 0 14px; padding: 10px 14px; border-left: 3px solid #222;
+        background: #0b0b0b; border-radius: 8px; }
+      blockquote p { margin: 0; }
+      hr { border: 0; border-top: 1px solid #111; margin: 20px 0; }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <a class="back" href="/">Back to home</a>
+      <h1>Janus Core Lite v0.1</h1>
+<p>Status: Draft Scope: Minimal governance core for AI-assisted systems.</p>
+<hr />
+<h2>1 Purpose</h2>
+<p>Define the minimal ontology and normative rules required to implement governance for AI-assisted systems.</p>
+<p>Core Lite is stack-agnostic.</p>
+<hr />
+<h2>2 Scope</h2>
+<p>Defines:</p>
+<ul>
+<li>ontology</li>
+<li>invariants</li>
+<li>event model</li>
+<li>evidence model</li>
+<li>omission detection</li>
+<li>truth condition</li>
+<li>minimal threat surface</li>
+</ul>
+<p>Does NOT define:</p>
+<ul>
+<li>runtime architecture</li>
+<li>identity systems</li>
+<li>distributed audit hubs</li>
+<li>UI or commercial layers</li>
+</ul>
+<hr />
+<h2>3 Ontology</h2>
+<p>The system is defined around three canonical append-only logs.</p>
+<p>These logs are conceptual and may be implemented over any storage or transport, provided the invariants in this document are preserved.</p>
+<h3><code>MANAGEMENT_LOG</code></h3>
+<p>Domain events and actions within the management context.</p>
+<h3><code>SCHEMA_LOG</code></h3>
+<p>Structural definitions and schema evolution used to interpret records in MANAGEMENT_LOG and AUDIT_LOG.</p>
+<h3><code>AUDIT_LOG</code></h3>
+<p>Governance events, accountability records, and audit findings.</p>
+<hr />
+<h2>4 Invariants</h2>
+<p>Core Lite defines a minimal set of invariants.</p>
+<h3>Append-only logs</h3>
+<p><code>MANAGEMENT_LOG</code>, <code>SCHEMA_LOG</code>, and <code>AUDIT_LOG</code> MUST be append-only.</p>
+<p>Records MAY be compacted for operational purposes only if the system preserves an equivalent, verifiable append-only representation for governance review.</p>
+<h3>Separation of domain and governance</h3>
+<p>Domain activity is recorded in <code>MANAGEMENT_LOG</code>. Governance evaluations and findings are recorded in <code>AUDIT_LOG</code>.</p>
+<p>Implementations MUST NOT treat <code>AUDIT_LOG</code> as the primary domain record.</p>
+<h3>Explicit evidence model</h3>
+<p>The evidence model MUST distinguish:</p>
+<ul>
+<li>E+ (explicit evidence): evidence explicitly recorded in a system of record</li>
+<li>E− (omission evidence): evidence derived from a verified absence of an expected record</li>
+</ul>
+<h3>Human final authority</h3>
+<p>When an outcome requires explicit human accountability, the system MUST record a <code>HUMAN_DECISION</code> event.</p>
+<p>Automated outputs MAY support human decisions but MUST NOT substitute for them when accountability is required.</p>
+<h3>Audit writer authority</h3>
+<p>Governance events appended to <code>AUDIT_LOG</code> MUST be written exclusively through an authorized Audit Writer mechanism.</p>
+<p>Direct writes that bypass the Audit Writer MUST be prevented.</p>
+<h3>Deterministic rebuildability</h3>
+<p>Given:</p>
+<ul>
+<li>all log records</li>
+<li>relevant schemas from <code>SCHEMA_LOG</code></li>
+<li>referenced evidence artifacts</li>
+</ul>
+<p>an implementation SHOULD be able to deterministically rebuild governance-relevant views and findings.</p>
+<hr />
+<h2>5 Evidence Model</h2>
+<h3>E+ explicit evidence</h3>
+<p>E+ is evidence explicitly recorded in a system of record.</p>
+<p>E+ indicates that a claim or event is supported by a recorded artifact.</p>
+<h3>E− omission evidence</h3>
+<p>E− is evidence derived from a verified absence of an expected record.</p>
+<p>E− requires:</p>
+<ul>
+<li>a defined expectation</li>
+<li>a deterministic search scope</li>
+<li>a reproducible observation showing the record is missing</li>
+<li>referenceable schema context from <code>SCHEMA_LOG</code></li>
+</ul>
+<p>E− is not counter-argumentation. It represents a verified omission relative to an explicit expectation.</p>
+<hr />
+<h2>6 Omission Detection</h2>
+<h3><code>OMISSION_DETECTED</code></h3>
+<p><code>OMISSION_DETECTED</code> is a canonical governance event type indicating that an expected record, state, or linkage is missing.</p>
+<p>An <code>OMISSION_DETECTED</code> event MUST include enough context to support E− (omission evidence), including:</p>
+<ul>
+<li>the expectation definition</li>
+<li>the deterministic search scope</li>
+<li>the reproducible observation that the expected record is absent</li>
+<li>the scope/time window to which the omission applies</li>
+</ul>
+<hr />
+<h2>7 Truth Condition</h2>
+<p>A claim is supported if:</p>
+<ul>
+<li>E+ recorded evidence exists</li>
+<p>OR</p>
+<li>E− verified omission exists</li>
+</ul>
+<p>Interpretation, escalation, and accountability MAY require human judgment.</p>
+<p>Evidence (E+ or E−) is evaluated through governance evaluation flows. These evaluation flows may produce governance events recorded in <code>AUDIT_LOG</code>. When required, human interpretation MUST be recorded via <code>HUMAN_DECISION</code>.</p>
+<hr />
+<h2>8 Threat Surface</h2>
+<p>Core Lite defines a minimal threat surface.</p>
+<p>Data integrity threats:</p>
+<ul>
+<li>log tampering</li>
+<li>shadow source of truth</li>
+<li>schema drift</li>
+</ul>
+<p>Observability threats:</p>
+<ul>
+<li>silent failure</li>
+</ul>
+<p>Authority threats:</p>
+<ul>
+<li>unauthorized audit writer</li>
+<li>autonomous authority violation</li>
+</ul>
+    </main>
+  </body>
+</html>
