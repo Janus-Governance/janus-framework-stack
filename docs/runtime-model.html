@@ -138,6 +138,10 @@
     <main class="container">
       <a class="back" href="/docs/">Back to docs</a>
       <h1>Janus Runtime Model</h1>
+      <p>Purpose: rendered surface for the runtime model document (with source attached).</p>
+      <p>
+        <a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/docs/runtime-model.md">View original source on GitHub</a>
+      </p>
       <h2>1. Purpose</h2>
 <p>Janus defines a governance core; runtimes execute the model in concrete environments.</p>
 <h2>2. Reference Runtime</h2>
@@ -157,6 +161,57 @@
 <p>filesystem adapter postgres adapter event-stream adapter</p>
 <h2>5. Principle</h2>
 <p>Janus governs system evolution. Runtimes execute governance evaluation.</p>
+      <h2>Source</h2>
+      <pre><code># Janus Runtime Model
+
+## 1. Purpose
+
+Janus defines a governance core; runtimes execute the model in concrete environments.
+
+## 2. Reference Runtime
+
+The current Node demo runtime is a reference implementation proving:
+- governance evaluation
+- omission detection
+- evidence model (E+ / E-)
+- audit writer boundary
+- deterministic rebuild
+
+Location:
+
+runtimes/demo-node/
+
+It is intentionally minimal and designed for demonstration.
+
+## 3. Future Runtimes
+
+Production runtimes may implement the same model in different environments, for example:
+- Node runtime
+- Python runtime
+- Apps Script runtime
+- Database-backed runtime
+
+These runtimes must respect the Janus Core invariants.
+
+## 4. Adapters
+
+Runtimes may use adapters for:
+- storage
+- databases
+- message systems
+- APIs
+
+Examples:
+
+filesystem adapter  
+postgres adapter  
+event-stream adapter
+
+## 5. Principle
+
+Janus governs system evolution.  
+Runtimes execute governance evaluation.
+</code></pre>
     </main>
   </body>
 </html>

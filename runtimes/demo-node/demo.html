@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Runtime Demo Source — demo.js</title>
+    <meta name="description" content="Rendered source surface for runtimes/demo-node/demo.js" />
+    <style>
+      :root { color-scheme: dark; }
+      body { margin: 0; padding: 0; background: #000; color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.6; }
+      .container { max-width: 900px; margin: 0 auto; padding: 56px 20px 64px; }
+      .back { display: inline-block; margin-bottom: 18px; color: #cfcfcf;
+        font-size: 0.98rem; text-decoration: none; }
+      .back:hover, .back:focus { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+      h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 10px; }
+      p { margin: 0 0 12px; color: #cfcfcf; }
+      a { color: #fff; text-decoration: none; }
+      a:hover, a:focus { text-decoration: underline; text-underline-offset: 3px; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace; font-size: 0.95em;
+        color: #fff; background: #111; padding: 0.15em 0.35em; border-radius: 6px; }
+      pre { margin: 0 0 14px; padding: 12px 14px; background: #0b0b0b;
+        border: 1px solid #1a1a1a; border-radius: 10px; overflow: auto; }
+      pre code { padding: 0; background: transparent; border-radius: 0; color: #cfcfcf; }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <a class="back" href="/runtimes/">Back to runtimes</a>
+      <h1>Runtime Demo Source — <code>demo.js</code></h1>
+      <p>Purpose: entrypoint that runs the reference demo flows (omission case, approved case, rebuild) against the demo runtime logs.</p>
+      <p>
+        <a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/runtimes/demo-node/demo.js">View original source on GitHub</a>
+      </p>
+      <pre><code>const fs = require("fs");
+const path = require("path");
+
+const { appendManagementEvent } = require("./src/appendManagementEvent");
+const { evaluateGovernance } = require("./src/evaluateGovernance");
+const { resetAuditLog, writeAuditEvents } = require("./src/auditWriter");
+const { rebuildState } = require("./src/rebuildState");
+
+const logsDir = path.join(__dirname, "logs");
+const managementLogPath = path.join(logsDir, "MANAGEMENT_LOG.json");
+const schemaLogPath = path.join(logsDir, "SCHEMA_LOG.json");
+const auditLogPath = path.join(logsDir, "AUDIT_LOG.json");
+
+const BASE_TS = new Date("2026-03-06T00:00:00.000Z");
+
+function tsPlusSeconds(seconds) {
+  return new Date(BASE_TS.getTime() + seconds * 1000).toISOString();
+}
+
+function writeJson(filePath, value) {
+  fs.writeFileSync(filePath, JSON.stringify(value, null, 2) + "\n", "utf8");
+}
+
+function resetLogs() {
+  writeJson(managementLogPath, []);
+  resetAuditLog(auditLogPath);
+  writeJson(schemaLogPath, [
+    {
+      id: "schema-001",
+      ts: tsPlusSeconds(0),
+      entity: "change_request",
+      version: 1,
+      fields: ["change", "actor", "decision"],
+    },
+  ]);
+}
+
+function runFlowA() {
+  console.log("FLOW A — omission case");
+  resetLogs();
+
+  appendManagementEvent(managementLogPath, {
+    id: "mgmt-001",
+    ts: tsPlusSeconds(0),
+    type: "CHANGE_PROPOSED",
+    actor: "AI_ARCHITECT",
+    payload: { change: "add field email" },
+  });
+
+  const evaluation = evaluateGovernance({
+    managementLogPath,
+    schemaLogPath,
+    auditLogPath,
+    nowIso: tsPlusSeconds(120),
+  });
+
+  writeAuditEvents(auditLogPath, evaluation.auditEventsToWrite);
+
+  console.log(JSON.stringify({
+    requiredEvent: evaluation.requiredEvent,
+    proposedChanges: evaluation.proposedChanges,
+    humanDecisionPresent: evaluation.humanDecisionPresent,
+    auditEventsWritten: evaluation.auditEventsToWrite.map((e) => e.type),
+  }, null, 2));
+
+  const state = rebuildState({ managementLogPath, auditLogPath });
+  console.log("REBUILD STATE");
+  console.log(JSON.stringify(state, null, 2));
+  console.log("");
+}
+
+function runFlowB() {
+  console.log("FLOW B — approved case");
+  resetLogs();
+
+  appendManagementEvent(managementLogPath, {
+    id: "mgmt-001",
+    ts: tsPlusSeconds(0),
+    type: "CHANGE_PROPOSED",
+    actor: "AI_ARCHITECT",
+    payload: { change: "add field email" },
+  });
+
+  appendManagementEvent(managementLogPath, {
+    id: "mgmt-002",
+    ts: tsPlusSeconds(60),
+    type: "HUMAN_DECISION",
+    actor: "HUMAN_HEAD",
+    payload: { decision: "approve" },
+  });
+
+  const evaluation = evaluateGovernance({
+    managementLogPath,
+    schemaLogPath,
+    auditLogPath,
+    nowIso: tsPlusSeconds(120),
+  });
+
+  writeAuditEvents(auditLogPath, evaluation.auditEventsToWrite);
+
+  console.log(JSON.stringify({
+    requiredEvent: evaluation.requiredEvent,
+    proposedChanges: evaluation.proposedChanges,
+    humanDecisionPresent: evaluation.humanDecisionPresent,
+    auditEventsWritten: evaluation.auditEventsToWrite.map((e) => e.type),
+  }, null, 2));
+  console.log("");
+}
+
+function runFlowC() {
+  console.log("FLOW C — rebuild");
+  const state = rebuildState({ managementLogPath, auditLogPath });
+  console.log(JSON.stringify(state, null, 2));
+}
+
+runFlowA();
+runFlowB();
+runFlowC();
+resetLogs();
+</code></pre>
+    </main>
+  </body>
+</html>
