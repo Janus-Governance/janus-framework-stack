@@ -2,7 +2,7 @@
 
 Official documentation entry point.
 
-➡ Start here: [Documentation Index](docs/index.md)
+➡ Start here: [Documentation Index](docs/index.html)
 
 ---
 

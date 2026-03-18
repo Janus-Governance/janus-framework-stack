@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Governance Scope Model</title>
+    <meta name="description" content="Governance scope — Janus docs." />
+    <style>
+      :root { color-scheme: dark; }
+      body { margin: 0; padding: 0; background: #000; color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.6; }
+      .container { max-width: 800px; margin: 0 auto; padding: 56px 20px 64px; }
+      .back { display: inline-block; margin-bottom: 18px; color: #cfcfcf;
+        font-size: 0.98rem; text-decoration: none; }
+      .back:hover, .back:focus { color: #fff; text-decoration: underline;
+        text-underline-offset: 3px; }
+      h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em;
+        margin: 0 0 18px; text-align: left; }
+      h2 { font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em;
+        margin: 24px 0 10px; }
+      h3 { font-size: 1.1rem; font-weight: 650; margin: 18px 0 8px; }
+      h4 { font-size: 1.02rem; font-weight: 650; margin: 14px 0 6px; }
+      p { margin: 0 0 12px; color: #cfcfcf; }
+      a { color: #fff; text-decoration: none; }
+      a:hover, a:focus { text-decoration: underline; text-underline-offset: 3px; }
+      ul, ol { margin: 0 0 14px; padding-left: 22px; color: #cfcfcf; }
+      li { margin: 6px 0; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace; font-size: 0.95em;
+        color: #fff; background: #111; padding: 0.15em 0.35em; border-radius: 6px; }
+      pre { margin: 0 0 14px; padding: 12px 14px; background: #0b0b0b;
+        border: 1px solid #1a1a1a; border-radius: 10px; overflow: auto; }
+      pre code { padding: 0; background: transparent; border-radius: 0; color: #cfcfcf; }
+      blockquote { margin: 0 0 14px; padding: 10px 14px; border-left: 3px solid #222;
+        background: #0b0b0b; border-radius: 8px; }
+      blockquote p { margin: 0; }
+      hr { border: 0; border-top: 1px solid #111; margin: 20px 0; }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <a class="back" href="/docs/">Back to docs</a>
+      <h1>Governance Scope Model</h1>
+<p>This document defines the concept of governance scope used during governance evaluation flows in Janus systems.</p>
+<p>A governance scope defines the bounded context within which evidence is evaluated and governance conclusions are produced.</p>
+<p>Governance scopes ensure that evaluation remains deterministic, traceable, and reproducible.</p>
+<h2>Scope definition</h2>
+<p>A governance scope represents a defined subset of observable system state used during governance evaluation.</p>
+<p>A scope typically includes:</p>
+<ul>
+<li>a defined time window</li>
+<li>a defined set of domain records</li>
+<li>relevant schema context</li>
+<li>a defined evaluation boundary</li>
+</ul>
+<h2>Temporal scope</h2>
+<p>Governance evaluations may operate over a defined time interval.</p>
+<p>Example:</p>
+<ul>
+<li>start_time</li>
+<li>end_time</li>
+</ul>
+<p>Temporal scope ensures that evaluations remain reproducible and that observations correspond to a clearly defined period.</p>
+<h2>Record scope</h2>
+<p>A governance scope may restrict the set of domain records considered during evaluation.</p>
+<p>Example:</p>
+<ul>
+<li>records belonging to a specific project</li>
+<li>records associated with a particular workflow</li>
+<li>records matching a defined query boundary</li>
+</ul>
+<p>This constraint ensures that evaluation operates over a well-defined subset of MANAGEMENT_LOG.</p>
+<h2>Schema scope</h2>
+<p>Governance evaluations may depend on schema definitions that interpret records.</p>
+<p>A governance scope SHOULD reference the relevant schema context from SCHEMA_LOG.</p>
+<p>This ensures that evaluations remain interpretable even as schemas evolve over time.</p>
+<h2>Deterministic search scope</h2>
+<p>When omission evidence (E−) is produced, the search scope used to verify the absence of an expected record MUST be deterministic.</p>
+<p>The scope must define:</p>
+<ul>
+<li>where the system searched</li>
+<li>what records were considered</li>
+<li>the schema context used during interpretation</li>
+</ul>
+<p>This requirement ensures that omission evidence remains verifiable.</p>
+<h2>Purpose</h2>
+<p>Governance scopes ensure that governance evaluation remains:</p>
+<ul>
+<li>deterministic</li>
+<li>reproducible</li>
+<li>auditable</li>
+</ul>
+<p>without constraining implementation technologies.</p>
+    </main>
+  </body>
+</html>

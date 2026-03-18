@@ -6,9 +6,9 @@ Janus Governance Core defines stack-agnostic specifications for systems that req
 
 ## Start here
 
-- 📖 [Glossary](./glossary.md)
-- 🧭 [Architecture Overview](./architecture/janus-stack.md)
-- ⚙️ [Governance Pipeline](./governance/governance-pipeline.md)
+- 📖 [Glossary](./glossary.html)
+- 🧭 [Architecture Overview](./architecture/janus-stack.html)
+- ⚙️ [Governance Pipeline](./governance/governance-pipeline.html)
 
 ---
 
@@ -21,21 +21,21 @@ Janus Governance Core defines stack-agnostic specifications for systems that req
 
 ## RFC System
 
-- [RFC 0001 – Core Lite](../rfcs/0001-core-lite.md)
-- [RFC 0002 – Evidence Model](../rfcs/0002-evidence-model.md)
-- [RFC 0003 – Omission Detection](../rfcs/0003-omission-detection.md)
-- [RFC 0004 – Human Authority Model](../rfcs/0004-human-authority-model.md)
-- [RFC 0005 – Governance Events](../rfcs/0005-governance-events.md)
-- [RFC 0006 – Governance Evaluation Layer](../rfcs/0006-governance-evaluation-layer.md)
-- [RFC 0007 – Audit Writer Authority](../rfcs/0007-audit-writer-authority.md)
-- [RFC 0008 – Log Reference Model](../rfcs/0008-log-reference-model.md)
+- [RFC 0001 – Core Lite](../rfcs/0001-core-lite.html)
+- [RFC 0002 – Evidence Model](../rfcs/0002-evidence-model.html)
+- [RFC 0003 – Omission Detection](../rfcs/0003-omission-detection.html)
+- [RFC 0004 – Human Authority Model](../rfcs/0004-human-authority-model.html)
+- [RFC 0005 – Governance Events](../rfcs/0005-governance-events.html)
+- [RFC 0006 – Governance Evaluation Layer](../rfcs/0006-governance-evaluation-layer.html)
+- [RFC 0007 – Audit Writer Authority](../rfcs/0007-audit-writer-authority.html)
+- [RFC 0008 – Log Reference Model](../rfcs/0008-log-reference-model.html)
 
 ---
 
 ## Project
 
-- 🗺️ [Roadmap](./roadmap.md)
-- 🤝 [Contributing](../CONTRIBUTING.md)
+- 🗺️ [Roadmap](./roadmap.html)
+- 🤝 [Contributing](../CONTRIBUTING.html)
 
 ---
 
