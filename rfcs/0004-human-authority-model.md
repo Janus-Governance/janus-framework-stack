@@ -46,6 +46,10 @@ authority has made, confirmed, or assumed responsibility for a decision.
 
 HUMAN_DECISION is a governance event produced by governance evaluation flows when explicit human accountability is required, regardless of whether the evaluation is based on E+ or E− evidence.
 
+HUMAN_VERDICT is an operational classification  
+within HUMAN_DECISION. The canonical Core event  
+remains HUMAN_DECISION.
+
 ### Event recording
 
 `HUMAN_DECISION` events MUST be written to:

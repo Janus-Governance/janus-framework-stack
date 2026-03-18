@@ -71,6 +71,11 @@ When human accountability is required, the system records:
 
 HUMAN_DECISION
 
+OMISSION_DETECTED does not require HUMAN_DECISION.  
+It represents a system-level detection event.  
+Human accountability, when required, is recorded  
+separately via HUMAN_DECISION.
+
 ---
 
 ## Rationale
