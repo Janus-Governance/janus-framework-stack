@@ -17,7 +17,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [ ! -f sitemap.xml ] && [ ! -f CNAME ] && [ ! -f robots.txt ]; then
+          if [ ! -f CNAME ]; then
             echo "SKIP_WEB_VALIDATION"
             exit 0
           fi
@@ -28,10 +28,6 @@ jobs:
             echo "::error::$*"
             fail=1
           }
-
-          if [ ! -f CNAME ]; then
-            err "CNAME missing"
-          fi
 
           if [ ! -f robots.txt ]; then
             err "robots.txt missing"
