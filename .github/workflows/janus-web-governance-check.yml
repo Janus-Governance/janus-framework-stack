@@ -17,6 +17,11 @@ jobs:
         run: |
           set -euo pipefail
 
+          if [ ! -f sitemap.xml ] && [ ! -f CNAME ] && [ ! -f robots.txt ]; then
+            echo "SKIP_WEB_VALIDATION"
+            exit 0
+          fi
+
           fail=0
 
           err() {
