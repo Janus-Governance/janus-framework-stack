@@ -1,0 +1,58 @@
+name: Janus Demos Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate-demos:
+    name: validate-demos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate demo structure
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          demos=(
+            "demos/rebuild"
+            "demos/audit"
+            "demos/stress"
+            "demos/evidence"
+            "demos/trace"
+            "demos/governance"
+          )
+
+          fail=0
+
+          for d in "${demos[@]}"; do
+            if [ ! -d "$d" ]; then
+              echo "FAIL: ${d} demo directory missing"
+              fail=1
+              continue
+            fi
+
+            if [ ! -f "$d/README.md" ]; then
+              echo "FAIL: $(basename "$d") demo missing README"
+              fail=1
+              continue
+            fi
+
+            count="$(find "$d" -maxdepth 1 -type f \( -name '*.md' -o -name '*.json' \) | wc -l | tr -d ' ')"
+            if [ "$count" -lt 1 ]; then
+              echo "FAIL: $(basename "$d") demo missing .md/.json"
+              fail=1
+              continue
+            fi
+
+            echo "OK: $(basename "$d") demo valid"
+          done
+
+          if [ "$fail" -ne 0 ]; then
+            exit 1
+          fi
