@@ -1,5 +1,5 @@
 # Janus Framework Stack
-
+License: MIT
 This repository is the public **operational layer** of the Janus ecosystem. It integrates protocols, Core references, runtimes, RFCs, and public-facing interfaces into a single, inspectable framework.
 
 This is **not a finished product**. The system is in **early validation** and is **not production-ready**.
