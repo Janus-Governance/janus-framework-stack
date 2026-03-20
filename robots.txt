@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://core.janusgovernance.org/sitemap.xml
+Sitemap: https://janusgovernance.org/sitemap.xml

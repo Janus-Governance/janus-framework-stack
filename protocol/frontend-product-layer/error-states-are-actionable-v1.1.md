@@ -1,75 +1,71 @@
-Error States Are Actionable — v1.1
-Rule
+# Error States Are Actionable — v1.1
 
-Every error state MUST present at least one actionable option.
+## Description
 
-Rationale
+## Problem it solves
 
 Errors without a clear next step leave users blocked and break task continuity.
 An actionable error maintains flow by providing a path forward, even in failure.
 
-Operational definition
+## Rule
 
-Error state:
+Every error state MUST present at least one actionable option.
+
+## Operational definition
+
+**Error state:**  
 Any system condition where the intended user action cannot be completed.
 
-Actionable option:
+**Actionable option:**  
 A clearly available action that allows the user to:
 
-retry the operation,
+- retry the operation,
+- correct the input,
+- choose an alternative path, or
+- safely exit the flow.
 
-correct the input,
-
-choose an alternative path, or
-
-safely exit the flow.
-
-Safe exit:
+**Safe exit:**  
 A safe exit returns the user to a known and stable state without data loss or ambiguous system state.
 
-Application
+## Constraints
+
+## Practical application
 
 When an error occurs, the system MUST:
 
-Clearly state what failed (no vague messages).
-
-Provide at least one direct action the user can take.
-
-Prioritize recovery actions (retry, fix, alternative).
-
-Avoid dead-end states with no navigation or resolution.
+- Clearly state what failed (no vague messages).
+- Provide at least one direct action the user can take.
+- Prioritize recovery actions (retry, fix, alternative).
+- Avoid dead-end states with no navigation or resolution.
 
 When no recovery action exists:
 
 The system MUST provide:
 
-a safe exit path, or
+- a safe exit path, or
+- an explicit explanation of why no action is possible.
 
-an explicit explanation of why no action is possible.
-
-Scope
+## Scope
 
 This protocol applies to errors presented within an active user interface session.
 Background or system-level errors without active user context are out of scope.
 
-Notes
+## Notes
 
-Error messages alone are not sufficient; they must be paired with action.
-
-Passive errors (logs, silent failures) do not satisfy this protocol.
+- Error messages alone are not sufficient; they must be paired with action.
+- Passive errors (logs, silent failures) do not satisfy this protocol.
 
 This protocol complements:
 
-Clarity Over Cleverness
+- Clarity Over Cleverness
+- Predictable Interaction States
 
-Predictable Interaction States
+## Acceptance criteria:
 
-Acceptance criteria:
+- File created at the exact path /protocols/
+- Markdown structure preserved
+- No wording changes
+- No additional sections added
 
-File created at the exact path /protocols/
-
-Markdown structure preserved
-
-No wording changes
-
-No additional sections added
+## Status
+draft
