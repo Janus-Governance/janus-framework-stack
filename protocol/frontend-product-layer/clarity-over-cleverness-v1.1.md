@@ -1,29 +1,39 @@
 # Clarity Over Cleverness — v1.1
 
-**Name:**  
+**Nombre:**  
 Clarity Over Cleverness
 
-**Description:**  
-This protocol states that, within the Frontend Product Layer, clarity in communication and interaction takes priority over clever solutions, aesthetic optimizations, or elegant implementations that reduce understanding for either the user or the system reviewer.
+**Descripción:**  
+Este protocolo establece que, en la Frontend Product Layer, la claridad en la comunicación y en la interacción tiene prioridad sobre soluciones ingeniosas, optimizaciones estéticas o implementaciones “elegantes” que dificulten la comprensión del usuario o del propio sistema.
 
-**Problem it solves:**  
-It prevents confusing interfaces, ambiguous microcopy, unclear flows, or design/code decisions that prioritize originality or sophistication over comprehension. It reduces cognitive load for both users and the team.
+**Problema que resuelve:**  
+Evita interfaces confusas, microcopys ambiguos, flujos poco evidentes o decisiones de diseño/código que priorizan originalidad o sofisticación por sobre la comprensión. Reduce la carga cognitiva del usuario y del equipo, evitando que lo “inteligente” complique lo “usable”.
 
-**Rule:**  
-When multiple ways exist to solve an interaction, message, or component, the clearest, most explicit, and most predictable option must be chosen, even if it is less elegant, less compact, or more redundant from a technical or visual perspective.
+## Operational definition
 
-**Operational definition:**  
-- Clever is any solution that requires non-obvious prior knowledge to be understood by a reviewer or user on first contact with the interface or code.  
-- Clarity is evaluated from the perspective of a first-time user or reviewer with no prior knowledge of the system.
+- **Clear interaction:**  
+  An interface behavior that can be understood immediately without interpretation or prior knowledge.
 
-**Practical application:**  
-If a button can use an abstract icon or explicit text, choose text. If a flow can be compressed into fewer steps but becomes less understandable, keep the longer but clearer flow. In frontend code, prefer descriptive naming and readable structures over abbreviations or overly sophisticated patterns. In microcopy, avoid ambiguity, irony, or creativity that harms immediate comprehension.
+- **Clever interaction:**  
+  An interface behavior that prioritizes novelty, surprise, or aesthetic over immediate comprehension.
 
-**Notes:**  
-- This protocol applies only within the Frontend Product Layer as defined in the Janus architecture.  
-- Clarity is validated through human review focused on immediate comprehension, not aesthetic preference or technical optimization.  
-- This protocol complements "User Surface First" by ensuring not only surface priority but also comprehension quality.  
-- This protocol was externally validated through an AI-assisted governance review process.  
+- **Cognitive load:**  
+  The mental effort required for a user to understand and interact with the system.
 
-**Status:**  
+**Regla:**  
+Ante múltiples formas de resolver una interacción, mensaje o componente, se debe elegir siempre la opción más clara, explícita y predecible, incluso si resulta menos “elegante”, menos compacta o más redundante desde el punto de vista técnico o visual.
+
+**Definición operativa:**  
+- “Clever” se define como cualquier solución que requiere conocimiento previo no evidente para ser comprendida por un revisor o usuario en su primer contacto con la interfaz o el código.  
+- La claridad se evalúa desde la perspectiva de un usuario o revisor de primera vez, sin conocimiento previo del sistema.
+
+**Aplicación práctica:**  
+Si un botón puede tener un ícono abstracto o un texto explícito, se prioriza el texto. Si un flujo puede comprimirse en menos pasos pero se vuelve menos entendible, se mantiene el flujo más largo pero claro. En código frontend, se priorizan nombres descriptivos y estructuras legibles por sobre abreviaciones o patrones excesivamente sofisticados. En microcopy, se evita ambigüedad, ironía o creatividad que afecte la comprensión inmediata.
+
+**Notas:**  
+- Este protocolo aplica únicamente dentro de la Frontend Product Layer definida en la arquitectura Janus.  
+- La claridad se valida mediante revisión humana centrada en comprensión inmediata, no en criterios estéticos o de optimización técnica.  
+- Este protocolo complementa “User Surface First”, asegurando no solo prioridad de superficie sino también calidad de comprensión.  
+
+**Estado:**  
 final

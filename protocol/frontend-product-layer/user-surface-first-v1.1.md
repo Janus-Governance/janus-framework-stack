@@ -1,25 +1,36 @@
 # User Surface First — v1.1
 
-**Name:**  
+**Nombre:**  
 User Surface First
 
-**Description:**  
-This protocol states that, within the Frontend Product Layer, the primary priority of any intervention must be the visible and usable surface of the product for the end user. Before optimizing internal structures, abstractions, or technical improvements that are not perceptible, it must be verified that the concrete user experience is clear, understandable, and functional.
+**Descripción:**  
+Este protocolo establece que, en la capa Frontend Product Layer, la prioridad principal de cualquier intervención debe ser la superficie visible y usable del producto por parte del usuario final. Antes de optimizar estructuras internas, abstracciones o mejoras técnicas no perceptibles, se debe verificar si la experiencia concreta de uso está resuelta, clara y funcional.
 
-**Problem it solves:**  
-It prevents development from drifting toward internal logic, refactors, or technically correct decisions in the abstract that are disconnected from the visible value of the product. It reduces the risk of building a frontend that is technically clean but confusing or incomplete from a real user perspective.
+**Problema que resuelve:**  
+Evita que el desarrollo se desvíe hacia lógica interna, refactors o decisiones técnicas correctas en abstracto pero desconectadas del valor visible del producto. Reduce el riesgo de construir un frontend técnicamente prolijo pero pobre, confuso o incompleto en su experiencia real.
 
-**Rule:**  
-In frontend/product decisions, priority is given to what directly impacts the user’s visible, understandable, and usable experience. No internal improvement should displace a surface improvement if that surface issue affects comprehension, navigation, readability, interaction, or perception.
+## Operational definition
 
-**Practical application:**  
-If a screen works technically but the user does not understand what to do, fix visual hierarchy, text, states, calls to action, or interaction flow first. If there is a tradeoff between refactoring internal components or resolving a visible issue in layout, feedback, clarity, or accessibility, resolve the visible issue first. In reviews, the first criterion is not whether the code improved but whether the product surface became clearer and more usable.
+- **User surface:**  
+  Any interface layer directly perceivable or interactable by the user (UI, messages, feedback, navigation states).
 
-**Notes:**  
-- This protocol applies only within the Frontend Product Layer as defined in the Janus architecture.  
-- Surface improvement is validated through human review of the end-user interaction path, not through technical metrics alone.  
-- This protocol formalizes user-centered priority within the Janus framework context. It is compatible with user-centered design approaches but operationally defined for this framework.  
-- This protocol was externally validated through an AI-assisted governance review process.  
+- **System capability:**  
+  Any underlying logic, data processing, or backend functionality not directly exposed to the user.
 
-**Status:**  
+- **Visible outcome:**  
+  A perceivable change in the user interface that reflects system state or action results.
+
+**Regla:**  
+En decisiones de desarrollo de frontend/producto, tiene prioridad aquello que impacta directamente en la experiencia visible, entendible y usable del usuario final. Ninguna mejora interna debe desplazar una corrección o mejora de superficie si esta afecta comprensión, navegación, lectura, interacción o percepción del producto.
+
+**Aplicación práctica:**  
+Si una pantalla funciona técnicamente pero el usuario no entiende qué hacer, primero se corrige jerarquía visual, textos, estados, llamados a la acción o flujo de interacción. Si existe una discusión entre refactorizar componentes internos o resolver un problema visible de layout, feedback, claridad o accesibilidad básica, se resuelve primero lo visible. En revisiones de avance, el criterio inicial no es “si el código quedó mejor” sino “si la superficie del producto quedó más clara, usable y sólida”.
+
+**Notas:**  
+- Este protocolo aplica únicamente dentro de la Frontend Product Layer definida en la arquitectura Janus. No aplica a backend, infraestructura ni capas de gobernanza.  
+- La mejora de superficie se valida mediante revisión humana del flujo de interacción del usuario final, no mediante métricas técnicas aisladas.  
+- Este protocolo formaliza la prioridad centrada en el usuario dentro del contexto Janus. Es compatible con enfoques de diseño centrado en el usuario, pero se define operativamente para este framework.
+- This protocol was externally validated through an AI-assisted governance review process.
+
+**Estado:**  
 final
