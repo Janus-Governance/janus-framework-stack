@@ -14,8 +14,8 @@ This index applies to all protocols that directly affect user-facing behavior, i
 
 The following protocols constitute the active Frontend Product Layer:
 
-1. User Surface First — v1.1  
-2. Clarity Over Cleverness — v1.1  
+1. User Surface First — v1.2  
+2. Clarity Over Cleverness — v1.2  
 3. Predictable Interaction States — v1.0  
 4. Feedback Before Navigation — v1.0  
 5. Error States Are Actionable — v1.1  
