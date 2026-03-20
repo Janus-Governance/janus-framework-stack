@@ -1,15 +1,21 @@
 # Error States Are Actionable — v1.1
 
 ## Description
+This protocol ensures that error states in the user interface provide clear, actionable guidance so users can understand what happened and what to do next.
 
 ## Problem it solves
+Prevents users from being blocked or confused when something goes wrong by ensuring errors are understandable and actionable.
 
-Errors without a clear next step leave users blocked and break task continuity.
-An actionable error maintains flow by providing a path forward, even in failure.
+## Rules
+- Error messages MUST clearly describe the issue in user-understandable language
+- Error states MUST provide a next step or recovery path
+- Technical or internal error details MUST NOT be exposed to end users unless explicitly justified
+- Silent failures are non-compliant
 
-## Rule
-
-Every error state MUST present at least one actionable option.
+## Constraints
+- Error handling must prioritize user recovery over system explanation
+- Errors must not expose sensitive system information
+- The system must remain consistent with other interaction states
 
 ## Operational definition
 
@@ -26,8 +32,6 @@ A clearly available action that allows the user to:
 
 **Safe exit:**  
 A safe exit returns the user to a known and stable state without data loss or ambiguous system state.
-
-## Constraints
 
 ## Practical application
 
@@ -59,13 +63,6 @@ This protocol complements:
 
 - Clarity Over Cleverness
 - Predictable Interaction States
-
-## Acceptance criteria:
-
-- File created at the exact path /protocols/
-- Markdown structure preserved
-- No wording changes
-- No additional sections added
 
 ## Status
 draft
