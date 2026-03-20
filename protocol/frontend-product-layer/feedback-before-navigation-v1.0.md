@@ -1,6 +1,5 @@
 # Feedback Before Navigation — v1.0
 
-Protocol — Feedback Before Navigation (v1.0)
 
 
 ## Description
