@@ -1,79 +1,36 @@
+
 # Janus Framework Stack
-License: MIT
-This repository is the public **operational layer** of the Janus ecosystem. It integrates protocols, Core references, runtimes, RFCs, and public-facing interfaces into a single, inspectable framework.
 
-This is **not a finished product**. The system is in **early validation** and is **not production-ready**.
+**Janus** is an open framework for making AI-assisted development transparent, accountable, and reproducible. It helps teams track decisions, evidence, and human approvals in software projects.
 
-## What is Janus
+## Why Janus?
+Modern AI tools can automate code and decisions, but this creates risks: missing context, unclear authority, and hard-to-reproduce results. Janus solves this by enforcing traceability, explicit evidence, and human sign-off at every step.
 
-Janus is a micro operational governance layer for AI-assisted development. It focuses on making work **traceable**, **deterministic**, and **rebuildable** by requiring explicit evidence, explicit scope, and explicit authority decisions.
+## How does it work?
+Janus wraps your development process with a protocol stack that:
+- Records every key action and decision with evidence
+- Requires human approval for critical steps
+- Makes it easy to rebuild or audit what happened, when, and why
 
-## Core principles
+## What is the protocol stack?
+The Janus protocol stack is a set of rules and interfaces that ensure:
+- Every change is linked to evidence ("evidence-first")
+- Scope and authority are always explicit
+- All actions are reproducible and reviewable
+This repository assembles these protocols, reference implementations, and demos in one place.
 
-- Evidence-first execution
-- Deterministic scope
-- Human authority gates
-- Rebuildability
-- No implicit operations
+## Quick Start
+1. Clone this repository
+2. Explore the `/protocol` and `/demos` directories for examples
+3. See `/docs` for guides and explanations
 
-## Architecture Overview
+> **Note:** Janus is in early validation and not production-ready. Use it for testing, learning, or contributing feedback.
 
-### Core repos
+## Learn More
+- [docs/](docs/) — Guides and explanations
+- [protocol/](protocol/) — Protocol definitions
+- [demos/](demos/) — Example workflows
+- [runtimes/](runtimes/) — Reference runtime implementations
 
-Janus Core and its canonical specifications live in separate repositories (conceptual sources of truth), including:
-
-- janus-core
-- janus-governance-core
-- janus-runtime
-- janus-rfc
-
-### Framework layer (this repo)
-
-This repository assembles the operational framework layer:
-
-- /protocol
-- /docs
-- /demos
-- /assets
-
-### Public interfaces
-
-Public-facing integration points (documentation, demos, and web interface) live in companion repositories such as:
-
-- janus-docs
-- janus-demo
-- janus-governance.github.io
-
-## Current Status
-
-- Early validation
-- Structurally aligned
-- Not production-ready
-
-## Relationship with janus-governance-core
-
-- janus-governance-core is the conceptual origin and specification baseline.
-- This repository is the operational framework that organizes and deploys protocols, references, and runnable artifacts around that baseline.
-
-## Why this exists
-
-AI-assisted development needs operational controls that make outcomes reproducible and accountable:
-
-- Traceability: decisions and actions are recorded with evidence context.
-- Authority: outcomes requiring accountability pass through explicit human gates.
-- Reproducibility: deterministic scope and evidence allow reconstruction of what happened and why.
-
-## Important note
-
-This repository is released before full validation. It is intended for testing and inspection rather than production deployment.
-
-## Next Steps
-
-- Real workflows (IA ↔ Copilot)
-- Protocol validation
-- Runtime alignment
-- RFC formalization
-
-## Author
-
-Martín Nicolás Sánchez Morales
+---
+MIT License | Author: Martín Nicolás Sánchez Morales
