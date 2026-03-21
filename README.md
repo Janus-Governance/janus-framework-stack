@@ -19,10 +19,12 @@ The Janus protocol stack is a set of rules and interfaces that ensure:
 - All actions are reproducible and reviewable
 This repository assembles these protocols, reference implementations, and demos in one place.
 
-## Quick Start
-1. Clone this repository
-2. Explore the `/protocol` and `/demos` directories for examples
-3. See `/docs` for guides and explanations
+
+## Quick Start Guide
+1. Read the README overview above for context.
+2. Get familiar with the protocol stack—see how Janus links evidence, scope, and authority.
+3. Try a simple workflow: open the `demos/` folder and follow an example.
+4. For deeper understanding, explore the `rfcs/` directory for detailed concepts.
 
 > **Note:** Janus is in early validation and not production-ready. Use it for testing, learning, or contributing feedback.
 
