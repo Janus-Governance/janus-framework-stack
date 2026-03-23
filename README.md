@@ -33,6 +33,7 @@ This repository assembles these protocols, reference implementations, and demos 
 - [protocol/](protocol/) — Protocol definitions
 - [demos/](demos/) — Example workflows
 - [runtimes/](runtimes/) — Reference runtime implementations
+- `dev/runtime-observability/` — Minimal runtime telemetry lab with flight recorder, functional test, benchmark, and stress test.
 
 ---
 MIT License | Author: Martín Nicolás Sánchez Morales
