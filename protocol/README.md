@@ -8,6 +8,7 @@ Stack entrypoint: evidence-first.md
 - Applies to local workflow execution: prompts, audits, evidence capture, intervention rules, and human gates.
 - Does not modify or redefine Janus Core or RFCs.
 
+
 ## Files
 - evidence-first.md
 - prompt-governance.md
@@ -18,6 +19,20 @@ Stack entrypoint: evidence-first.md
 - duplicate-prompt-guard.md
 - frontend-link-governance.md
 - runtime-intervention-rules.md
+
+#
+# Protocol Layers
+#
+- **change-governance/**
+	Governs how changes are introduced, validated, observed, 
+	and reverted in the system. Ensures deterministic promotion, 
+	rollback safety, and runtime traceability.
+
+	Includes:
+	- Promotion Gate v1.0
+	- Baseline & Rollback v1.0
+	- Runtime Observability v1.0
+
 
 ## Protocol Stack Order
 
