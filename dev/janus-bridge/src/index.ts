@@ -1,5 +1,12 @@
+
 import fs from "fs";
 import path from "path";
+
+// --- Flight recorder integration ---
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const flightRecorder = require("../../runtime-observability/flight-recorder.js");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const RUNTIME_EVENTS = require("../../runtime-observability/runtime-events.js");
 
 import { runBridgeOnce } from "./bridgeLoop";
 import { writeJsonAtomic } from "./fileUtils";
@@ -58,41 +65,82 @@ function tailFile(filePath: string, maxLines: number): void {
 }
 
 function main(): void {
-  const mode = process.argv[2];
-  if (!mode) {
+  // --- App start: record BUILD_INFO ---
+  flightRecorder.recordEvent(RUNTIME_EVENTS.BUILD_INFO, {
+    version: require("../package.json").version,
+    ts: Date.now(),
+    file: __filename
+  });
+
+  try {
+    const mode = process.argv[2];
+    if (!mode) {
+      usage();
+      process.exitCode = 2;
+      return;
+    }
+
+    const projectRoot = projectRootFromCwd();
+
+    // --- Component load: record COMPONENT_MOUNT ---
+    flightRecorder.recordEvent(RUNTIME_EVENTS.COMPONENT_MOUNT, {
+      mode,
+      file: __filename
+    });
+
+    if (mode === "bridge") {
+      const result = runBridgeOnce(projectRoot);
+      // --- State change: record STATE_TRANSITION ---
+      flightRecorder.recordEvent(RUNTIME_EVENTS.STATE_TRANSITION, {
+        state: "bridge_run",
+        message: result.message,
+        file: __filename
+      });
+      console.log(result.message);
+      return;
+    }
+
+    if (mode === "demo") {
+      // --- User event: record USER_EVENT ---
+      flightRecorder.recordEvent(RUNTIME_EVENTS.USER_EVENT, {
+        event: "demo_prompt_create",
+        file: __filename
+      });
+      const promptPath = writeDemoPrompt(projectRoot);
+      console.log(`Wrote demo prompt: ${promptPath}`);
+
+      const result = runBridgeOnce(projectRoot);
+      // --- State change: record STATE_TRANSITION ---
+      flightRecorder.recordEvent(RUNTIME_EVENTS.STATE_TRANSITION, {
+        state: "demo_run",
+        message: result.message,
+        file: __filename
+      });
+      console.log(result.message);
+
+      // Print resulting files for the demo.
+      const outboxResultPath = path.join(projectRoot, "outbox", "result.json");
+      printFileIfExists(outboxResultPath);
+
+      const repoRoot = path.resolve(projectRoot, "..", "..");
+      const eventsLogPath = path.join(repoRoot, "janus-runtime", "events.log");
+      tailFile(eventsLogPath, 20);
+
+      return;
+    }
+
     usage();
     process.exitCode = 2;
-    return;
+  } catch (err) {
+    // --- Error: record JS_ERROR ---
+    const e = err as Error & { lineNumber?: number };
+    flightRecorder.recordEvent(RUNTIME_EVENTS.JS_ERROR, {
+      stack: e && e.stack,
+      file: __filename,
+      line: (e && typeof e.lineNumber === 'number') ? e.lineNumber : undefined
+    });
+    throw err;
   }
-
-  const projectRoot = projectRootFromCwd();
-
-  if (mode === "bridge") {
-    const result = runBridgeOnce(projectRoot);
-    console.log(result.message);
-    return;
-  }
-
-  if (mode === "demo") {
-    const promptPath = writeDemoPrompt(projectRoot);
-    console.log(`Wrote demo prompt: ${promptPath}`);
-
-    const result = runBridgeOnce(projectRoot);
-    console.log(result.message);
-
-    // Print resulting files for the demo.
-    const outboxResultPath = path.join(projectRoot, "outbox", "result.json");
-    printFileIfExists(outboxResultPath);
-
-    const repoRoot = path.resolve(projectRoot, "..", "..");
-    const eventsLogPath = path.join(repoRoot, "janus-runtime", "events.log");
-    tailFile(eventsLogPath, 20);
-
-    return;
-  }
-
-  usage();
-  process.exitCode = 2;
 }
 
 main();
