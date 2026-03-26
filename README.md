@@ -1,5 +1,6 @@
 
-# Domain: https://framework.janusgovernance.org
+Domain: https://framework.janusgovernance.org
+
 # Janus Framework Stack
 
 **Janus** is an open framework for making AI-assisted development transparent, accountable, and reproducible. It helps teams track decisions, evidence, and human approvals in software projects.
