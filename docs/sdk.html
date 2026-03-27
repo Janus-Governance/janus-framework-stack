@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Janus Python SDK (v0.1)</title>
+    <meta name="description" content="Developer surface of the Janus Framework" />
+    <link rel="canonical" href="https://janusgovernance.org/docs/sdk/" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --accent: #ff6a00;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #fff;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+        line-height: 1.5;
+      }
+      .container {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 64px 20px 48px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 0.5em;
+      }
+      h2 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #ff6a00;
+        margin-top: 0;
+        margin-bottom: 2em;
+      }
+      pre, code {
+        background: #181818;
+        color: #ffb86c;
+        border-radius: 6px;
+        padding: 0.7em 1em;
+        font-size: 1em;
+        text-align: left;
+        overflow-x: auto;
+      }
+      .button-row {
+        margin: 2.5em 0 1.5em;
+        display: flex;
+        justify-content: center;
+        gap: 1.5em;
+      }
+      a.button {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 600;
+        padding: 0.7em 1.6em;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      a.button:hover {
+        background: #ff8c1a;
+      }
+      .example-output {
+        background: #181818;
+        color: #fff;
+        border-radius: 6px;
+        padding: 1.2em 1em;
+        margin: 1.5em 0 2em;
+        text-align: left;
+        font-size: 1em;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Janus Python SDK (v0.1)</h1>
+      <h2>Developer surface of the Janus Framework</h2>
+      <section>
+        <h3>Quick Start</h3>
+        <ol style="text-align:left; max-width:500px; margin:0 auto 1.5em;">
+          <li>Clear the log (required for a clean run):
+            <pre><code>rm -f runtimes/python-sdk/janus/janus_events.jsonl</code></pre>
+          </li>
+          <li>Run the quickstart demo:
+            <pre><code>python3 runtimes/python-sdk/quickstart.py</code></pre>
+          </li>
+          <li>View the governance report:
+            <pre><code>python3 runtimes/python-sdk/janus/cli.py report</code></pre>
+          </li>
+        </ol>
+        <div class="example-output">
+          <strong>Example Output:</strong>
+          <pre>Janus Report
+E+: ['event_ok']
+E-: ['event_missing']
+ECR: 50.0%
+Status: ⚠️ Missing expected events</pre>
+        </div>
+      </section>
+      <div class="button-row">
+        <a class="button" href="https://github.com/Janus-Governance/janus-framework-stack/tree/main/runtimes/python-sdk" target="_blank" rel="noopener">View SDK Source on GitHub</a>
+        <a class="button" href="/index.html">Back to Framework Landing</a>
+      </div>
+    </div>
+  </body>
+</html>
