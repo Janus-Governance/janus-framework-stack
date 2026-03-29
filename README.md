@@ -1,4 +1,46 @@
 
+
+
+# Janus Governance
+Built for AI-assisted development, where traceability and human authority matter.
+
+
+→ Start here: https://janusgovernance.org
+
+Janus is a governance architecture for AI-assisted development systems.
+
+It makes decisions, omissions, and human authority explicit, traceable, and rebuildable.
+
+---
+
+## 🚀 Quick start (2 minutes)
+
+→ What is Janus  
+https://janusgovernance.org/what-is-janus
+
+→ Explore the architecture  
+https://janusgovernance.org/architecture
+
+→ Read the paper  
+https://core.janusgovernance.org/docs/paper/janus-foundational-paper-v1.0.pdf
+
+---
+
+## ⚠️ Important
+
+This repository is not a product or framework.
+
+It is a governance kernel designed to sit on top of existing systems.
+
+---
+
+## Why this matters
+
+Most systems fail silently.
+
+Janus makes failures visible.
+
+---
 Domain: https://framework.janusgovernance.org
 
 # Janus Framework Stack
