@@ -8,10 +8,68 @@ Operational governance layer for AI-assisted development.
 
 ## 🚀 Quick Start
 
-Run a demo:
+### Path A — Python SDK (fastest)
+
+```bash
+pip install janus-governance
+janus run --case case-01-happy-path
+```
+
+Runs a governance evaluation and returns an E+ / E− verdict.
+
+---
+
+### Path B — Visual Evidence Demo (technical)
 
 ```bash
 cd demos/visual-evidence
 npm install
 npm run install-playwright
 node capture.js
+```
+
+Generates a screenshot and visual analysis of a governed artifact.
+
+---
+
+## What is this repository
+
+This repository contains the **Janus framework stack**:
+
+- protocol definitions
+- reference implementations
+- runnable demos
+
+It operationalizes the Janus governance model at the development layer.
+
+---
+
+## What does Janus do
+
+Janus introduces governance at the point where development happens:
+
+- makes decisions traceable
+- records evidence explicitly (E+ / E−)
+- enforces human authority where required
+- enables deterministic reconstruction of workflows
+
+---
+
+## Structure
+
+- `protocol/` — governance rules and constraints  
+- `demos/` — runnable examples  
+- `runtimes/` — reference implementations  
+- `docs/` — extended explanations  
+
+---
+
+## Framework Specification
+
+→ [Framework Paper](LINK)
+
+---
+
+## Notes
+
+Janus is under active development and validation.
