@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Janus Visual Evidence Demo</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; background: #f9f9f9; }
+    h1 { color: #2a4d7c; }
+    .box { background: #fff; border: 1px solid #ddd; padding: 2em; border-radius: 8px; max-width: 600px; margin: 2em auto; box-shadow: 0 2px 8px #0001; }
+    .logo { width: 120px; margin-bottom: 1em; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img class="logo" src="https://raw.githubusercontent.com/janus-governance/janus-framework-stack/main/assets/logo/janus-logo.svg" alt="Janus Logo">
+    <h1>Janus Visual Evidence Demo</h1>
+    <p>This is a minimal static page for screenshot capture validation.</p>
+    <ul>
+      <li>Project: <b>janus-framework-stack</b></li>
+      <li>Demo: <b>visual-evidence</b></li>
+      <li>Date: <span id="date"></span></li>
+    </ul>
+    <p>For more, see <a href="../README.md">README.md</a>.</p>
+  </div>
+  <script>
+    document.getElementById('date').textContent = new Date().toISOString();
+  </script>
+</body>
+</html>
