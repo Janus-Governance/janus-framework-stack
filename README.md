@@ -21,7 +21,7 @@ Runs a governance evaluation and returns an E+ / E− verdict.
 
 ---
 
-### Path B — Visual Evidence Demo (technical)
+### Path B — Run a demo (visual evidence)
 
 ```bash
 cd demos/visual-evidence
@@ -31,17 +31,6 @@ node capture.js
 ```
 
 Generates a screenshot and visual analysis of a governed artifact.
-
----
-
-## Run a demo
-
-```bash
-cd demos/visual-evidence
-npm install
-npm run install-playwright
-node capture.js
-```
 
 ---
 
@@ -82,7 +71,6 @@ Janus introduces governance at the point where development happens:
 → [Framework Paper](LINK)
 
 ---
-
 ## Notes
 
 Janus is under active development and validation.
