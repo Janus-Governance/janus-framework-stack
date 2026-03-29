@@ -34,6 +34,17 @@ Generates a screenshot and visual analysis of a governed artifact.
 
 ---
 
+## Run a demo
+
+```bash
+cd demos/visual-evidence
+npm install
+npm run install-playwright
+node capture.js
+```
+
+---
+
 ## What is this repository
 
 This repository contains the **Janus framework stack**:
