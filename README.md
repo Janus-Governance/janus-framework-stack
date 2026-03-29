@@ -1,5 +1,7 @@
 # Janus Framework Stack
 
+Domain: https://framework.janusgovernance.org
+
 Operational governance layer for AI-assisted development.
 
 → Start here: https://janusgovernance.org
