@@ -1,0 +1,65 @@
+name: Janus Artifact Boundary Guard
+
+"on":
+  push:
+    branches:
+      - main
+      - "feature/**"
+  pull_request:
+
+jobs:
+  artifact-boundary-guard:
+    name: artifact-boundary-guard
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run artifact boundary check
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # ── Forbidden patterns (tracked files that must never appear in the repo) ──
+          FORBIDDEN_PATTERNS=(
+            "node_modules/"
+            "demos/visual-evidence/output/"
+            "\.log$"
+            "\.tmp$"
+            "\.swp$"
+            "\.aux$"
+            "\.fls$"
+            "\.fdb_latexmk$"
+          )
+
+          # ── Collect all tracked files in the repository ───────────────────────────
+          ALL_TRACKED=$(git ls-files)
+
+          VIOLATIONS=()
+
+          while IFS= read -r file; do
+            for pattern in "${FORBIDDEN_PATTERNS[@]}"; do
+              if echo "$file" | grep -qE "$pattern"; then
+                VIOLATIONS+=("  → $file  (matches: $pattern)")
+                break
+              fi
+            done
+          done <<< "$ALL_TRACKED"
+
+          # ── Report ────────────────────────────────────────────────────────────────
+          if [ ${#VIOLATIONS[@]} -gt 0 ]; then
+            echo ""
+            echo "::error::JANUS ARTIFACT BOUNDARY VIOLATION — forbidden tracked files detected:"
+            for v in "${VIOLATIONS[@]}"; do
+              echo "$v"
+              echo "::error::$v"
+            done
+            echo ""
+            echo "These files must not be tracked by git."
+            echo "Remove them from the index with:  git rm --cached <file>"
+            echo "Then add the path to .gitignore."
+            exit 1
+          fi
+
+          echo "[JANUS GUARD] ✓ Artifact boundary check passed. No forbidden tracked files found."
