@@ -9,3 +9,8 @@ docs/*.aux
 docs/*.log
 docs/*.fls
 docs/*.fdb_latexmk
+node_modules/
+
+# Demo runtime artifacts
+demos/visual-evidence/output/
+demos/visual-evidence/node_modules/
