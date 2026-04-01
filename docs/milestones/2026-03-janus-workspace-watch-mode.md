@@ -22,7 +22,7 @@ Janus Bridge detects file automatically
 ↓
 events.log updated
 ↓
-Flow Viewer displays new events
+Flow Viewer displays new events [ARCHIVED/EXPERIMENTAL as of 2026-04-01]
 ↓
 result.json written to outbox
 
@@ -44,7 +44,7 @@ dev/janus-bridge/
 
 ## Success criteria
 
-Flow Viewer displays events without running:
+Flow Viewer displays events without running: [ARCHIVED/EXPERIMENTAL as of 2026-04-01]
 
 npm run bridge
 

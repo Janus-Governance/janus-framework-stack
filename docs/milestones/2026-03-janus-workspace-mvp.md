@@ -9,7 +9,7 @@ First operational validation of the Janus Workspace local architecture.
 ## Components validated
 
 * Janus Bridge (dev/janus-bridge)
-* VS Code Flow Viewer (dev/janus-vscode-connector)
+* VS Code Flow Viewer (archive/dev/janus-vscode-connector) [ARCHIVED/EXPERIMENTAL as of 2026-04-01]
 * Janus runtime event stream (janus-runtime/events.log)
 
 ## Verified execution loop
@@ -20,7 +20,7 @@ Janus Bridge
 ↓
 events.log
 ↓
-Flow Viewer (VS Code)
+Flow Viewer (VS Code) [ARCHIVED/EXPERIMENTAL as of 2026-04-01]
 ↓
 result.json
 

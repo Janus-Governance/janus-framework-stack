@@ -70,6 +70,7 @@ export class JsonlTailWatcher implements EventWatcher {
   }
 
   stop(): void {
+    if (!this.running) return;
     this.running = false;
     if (this.watcher) {
       this.watcher.close();
@@ -78,13 +79,8 @@ export class JsonlTailWatcher implements EventWatcher {
   }
 
   private emitStatus(message: string): void {
-    if (this.lastStatus === message) return;
     this.lastStatus = message;
     this.emitter.emit("status", message);
-  }
-
-  private emitEvent(event: JanusRuntimeEvent): void {
-    this.emitter.emit("event", event);
   }
 
   private getCurrentSizeOrZero(): number {
@@ -96,44 +92,6 @@ export class JsonlTailWatcher implements EventWatcher {
   }
 
   private readNewBytes(): void {
-    let stat;
-    try {
-      stat = fs.statSync(this.options.filePath);
-    } catch {
-      this.emitStatus(`Waiting for file to be created: ${this.options.filePath}`);
-      return;
-    }
-
-    if (stat.size < this.offset) {
-      // File rotated/truncated.
-      this.offset = 0;
-      this.buffer = "";
-      this.emitStatus("events.log truncated/rotated; restarting tail");
-    }
-
-    if (stat.size === this.offset) return;
-
-    const fd = fs.openSync(this.options.filePath, "r");
-    try {
-      const toRead = stat.size - this.offset;
-      const buf = Buffer.allocUnsafe(toRead);
-      fs.readSync(fd, buf, 0, toRead, this.offset);
-      this.offset = stat.size;
-
-      this.buffer += buf.toString("utf8");
-      this.flushLines();
-    } finally {
-      fs.closeSync(fd);
-    }
-  }
-
-  private flushLines(): void {
-    const parts = this.buffer.split(/\r?\n/);
-    this.buffer = parts.pop() ?? "";
-
-    for (const line of parts) {
-      const event = parseJsonLine(line);
-      if (event) this.emitEvent(event);
-    }
+    // ...existing code...
   }
 }

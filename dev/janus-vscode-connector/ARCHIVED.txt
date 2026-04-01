@@ -1,0 +1,1 @@
+This directory was archived and moved to archive/dev/janus-vscode-connector/ on 2026-04-01 as part of janus-framework-stack surface cleanup. See milestone docs for details.

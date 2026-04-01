@@ -75,42 +75,28 @@ function activate(context) {
             startWatchingProjectFolder(workspaceRoot);
             return;
         }
-        // No workspace open: keep the panel visible and let the user pick a folder.
         panel.setEmptyMessage("No workspace folder is open. Select a project folder to watch Janus events.");
         panel.setStatus("Waiting for folder selection.");
         panel.setAction({
             label: "Select project folder",
             commandId: SELECT_FOLDER_COMMAND,
         });
-        const picked = await vscode.window.showInformationMessage("No workspace folder is open. Select a project folder to watch Janus events.", "Select Folder");
-        if (picked === "Select Folder") {
-            await vscode.commands.executeCommand(SELECT_FOLDER_COMMAND);
-        }
     });
     const selectFolderCommand = vscode.commands.registerCommand(SELECT_FOLDER_COMMAND, async () => {
-        if (!panel) {
-            panel = new flowPanel_1.FlowPanel(context);
-            panel.show();
-        }
-        const selection = await vscode.window.showOpenDialog({
-            canSelectFiles: false,
+        if (!panel)
+            return;
+        const folderUri = await vscode.window.showOpenDialog({
             canSelectFolders: true,
+            canSelectFiles: false,
             canSelectMany: false,
             openLabel: "Select project folder",
-            title: "Select a Janus project folder to watch",
         });
-        const folderUri = selection?.[0];
-        if (!folderUri) {
-            panel.setStatus("Folder selection canceled.");
+        if (!folderUri || folderUri.length === 0)
             return;
-        }
-        startWatchingProjectFolder(folderUri.fsPath, {
-            emptyMessage: "No events yet. Waiting for Janus events in janus-runtime/events.log (relative to the selected folder).",
-        });
+        startWatchingProjectFolder(folderUri[0].fsPath);
     });
     context.subscriptions.push(startCommand, selectFolderCommand);
 }
 function deactivate() {
     stopWatcher();
 }
-//# sourceMappingURL=extension.js.map

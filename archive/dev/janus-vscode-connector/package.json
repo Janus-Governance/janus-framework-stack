@@ -5,12 +5,8 @@
   "version": "0.0.1",
   "private": true,
   "publisher": "janus-dev",
-  "engines": {
-    "vscode": "^1.80.0"
-  },
-  "categories": [
-    "Other"
-  ],
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Other"],
   "activationEvents": [
     "onCommand:janus.startFlowViewer",
     "onCommand:janus.selectFlowViewerFolder"
@@ -18,14 +14,8 @@
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "janus.startFlowViewer",
-        "title": "Janus: Start Flow Viewer"
-      },
-      {
-        "command": "janus.selectFlowViewerFolder",
-        "title": "Janus: Select Flow Viewer Folder"
-      }
+      { "command": "janus.startFlowViewer", "title": "Janus: Start Flow Viewer" },
+      { "command": "janus.selectFlowViewerFolder", "title": "Janus: Select Flow Viewer Folder" }
     ]
   },
   "scripts": {

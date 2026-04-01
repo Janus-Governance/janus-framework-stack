@@ -60,6 +60,8 @@ class JsonlTailWatcher {
         }
     }
     stop() {
+        if (!this.running)
+            return;
         this.running = false;
         if (this.watcher) {
             this.watcher.close();
@@ -67,61 +69,18 @@ class JsonlTailWatcher {
         }
     }
     emitStatus(message) {
-        if (this.lastStatus === message)
-            return;
         this.lastStatus = message;
         this.emitter.emit("status", message);
-    }
-    emitEvent(event) {
-        this.emitter.emit("event", event);
     }
     getCurrentSizeOrZero() {
         try {
             return fs_1.default.statSync(this.options.filePath).size;
         }
-        catch {
+        catch (_a) {
             return 0;
         }
     }
     readNewBytes() {
-        let stat;
-        try {
-            stat = fs_1.default.statSync(this.options.filePath);
-        }
-        catch {
-            this.emitStatus(`Waiting for file to be created: ${this.options.filePath}`);
-            return;
-        }
-        if (stat.size < this.offset) {
-            // File rotated/truncated.
-            this.offset = 0;
-            this.buffer = "";
-            this.emitStatus("events.log truncated/rotated; restarting tail");
-        }
-        if (stat.size === this.offset)
-            return;
-        const fd = fs_1.default.openSync(this.options.filePath, "r");
-        try {
-            const toRead = stat.size - this.offset;
-            const buf = Buffer.allocUnsafe(toRead);
-            fs_1.default.readSync(fd, buf, 0, toRead, this.offset);
-            this.offset = stat.size;
-            this.buffer += buf.toString("utf8");
-            this.flushLines();
-        }
-        finally {
-            fs_1.default.closeSync(fd);
-        }
-    }
-    flushLines() {
-        const parts = this.buffer.split(/\r?\n/);
-        this.buffer = parts.pop() ?? "";
-        for (const line of parts) {
-            const event = (0, janusParser_1.parseJsonLine)(line);
-            if (event)
-                this.emitEvent(event);
-        }
+        // ...existing code...
     }
 }
-exports.JsonlTailWatcher = JsonlTailWatcher;
-//# sourceMappingURL=eventWatcher.js.map

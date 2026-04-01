@@ -8,11 +8,11 @@
       "request": "launch",
       "runtimeExecutable": "${execPath}",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}/dev/janus-vscode-connector",
+        // "--extensionDevelopmentPath=${workspaceFolder}/archive/dev/janus-vscode-connector", // [ARCHIVED 2026-04-01]
         "${workspaceFolder}"
       ],
       "outFiles": [
-        "${workspaceFolder}/dev/janus-vscode-connector/dist/**/*.js"
+        // "${workspaceFolder}/archive/dev/janus-vscode-connector/dist/**/*.js" // [ARCHIVED 2026-04-01]
       ]
     }
   ]
