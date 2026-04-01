@@ -1,5 +1,5 @@
   require('dotenv').config({ path: require('path').join(__dirname, '.env') });
-  console.log('OPENAI_API_KEY at runtime:', process.env.OPENAI_API_KEY);
+  console.log('OPENAI_API_KEY present at runtime:', !!process.env.OPENAI_API_KEY);
 const fs = require('fs');
 const path = require('path');
 
