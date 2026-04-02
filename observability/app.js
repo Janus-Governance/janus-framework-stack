@@ -38,6 +38,9 @@ async function renderRuntime(runtime) {
     fetchJSON(base + 'MANAGEMENT_LOG.json'),
     fetchJSON(base + 'SCHEMA_LOG.json'),
   ]);
+  const schemaDiv = document.createElement('div');
+  schemaDiv.className = 'schema';
+  schemaDiv.innerHTML = '<h3>Schema</h3>';
   if (!schema) {
     schemaDiv.innerHTML += '<p class="error">No se pudo cargar SCHEMA_LOG.json</p>';
   }
