@@ -1,3 +1,24 @@
+// Human Gate approval logic
+window.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('approveBtn');
+  if (btn) {
+    btn.addEventListener('click', function() {
+      var checks = document.querySelectorAll('.hg-check');
+      var allChecked = Array.from(checks).every(function(c) { return c.checked; });
+      if (!allChecked) {
+        alert('Por favor, completa todas las validaciones.');
+        return;
+      }
+      console.log('HUMAN_DECISION: APPROVED');
+      window.JANUS_EVENTS = window.JANUS_EVENTS || [];
+      window.JANUS_EVENTS.push({
+        type: 'HUMAN_DECISION',
+        decision: 'APPROVED',
+        ts: new Date().toISOString()
+      });
+    });
+  }
+});
 // Janus Observability Layer v1
 // Minimal, read-only, log-based observability
 
