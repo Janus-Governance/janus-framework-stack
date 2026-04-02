@@ -35,11 +35,12 @@ async function renderRuntime(runtime) {
   const base = `../runtimes/${runtime}/logs/`;
   const [audit, management, schema] = await Promise.all([
     fetchJSON(base + 'AUDIT_LOG.json'),
-    fetchJSON(base + 'MANAGEMENT_LOG.json'),
-    fetchJSON(base + 'SCHEMA_LOG.json'),
-  ]);
-
-  // Events
+  if (!schema) {
+    schemaDiv.innerHTML += '<p class="error">No se pudo cargar SCHEMA_LOG.json</p>';
+  }
+  if (schema) {
+    schemaDiv.innerHTML += '<pre>' + JSON.stringify(schema, null, 2) + '</pre>';
+  }
   const eventsDiv = document.createElement('div');
   eventsDiv.className = 'events';
   eventsDiv.innerHTML = '<h3>Eventos (AUDIT + MANAGEMENT)</h3>';
