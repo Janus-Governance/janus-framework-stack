@@ -47,6 +47,8 @@ async function renderRuntime(runtime) {
   if (schema) {
     schemaDiv.innerHTML += '<pre>' + JSON.stringify(schema, null, 2) + '</pre>';
   }
+  container.appendChild(schemaDiv);
+
   const eventsDiv = document.createElement('div');
   eventsDiv.className = 'events';
   eventsDiv.innerHTML = '<h3>Eventos (AUDIT + MANAGEMENT)</h3>';
@@ -62,17 +64,6 @@ async function renderRuntime(runtime) {
     }
   }
   container.appendChild(eventsDiv);
-
-  // Schema
-  const schemaDiv = document.createElement('div');
-  schemaDiv.className = 'schema';
-  schemaDiv.innerHTML = '<h3>Schema</h3>';
-  if (!schema) {
-    schemaDiv.innerHTML += '<p class="error">No se pudo cargar SCHEMA_LOG.json</p>';
-  if (schema) {
-    schemaDiv.innerHTML += '<pre>' + JSON.stringify(schema, null, 2) + '</pre>';
-  }
-  container.appendChild(schemaDiv);
 
   // Health (structural)
   const healthDiv = document.createElement('div');
