@@ -35,6 +35,9 @@ async function renderRuntime(runtime) {
   const base = `../runtimes/${runtime}/logs/`;
   const [audit, management, schema] = await Promise.all([
     fetchJSON(base + 'AUDIT_LOG.json'),
+    fetchJSON(base + 'MANAGEMENT_LOG.json'),
+    fetchJSON(base + 'SCHEMA_LOG.json'),
+  ]);
   if (!schema) {
     schemaDiv.innerHTML += '<p class="error">No se pudo cargar SCHEMA_LOG.json</p>';
   }
