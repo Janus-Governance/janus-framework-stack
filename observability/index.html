@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janus Observability Layer v1</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+    header { background: #222; color: #fff; padding: 1em; }
+    main { padding: 2em; }
+    .runtime-list { margin-bottom: 2em; }
+    .runtime { background: #fff; border-radius: 6px; box-shadow: 0 2px 8px #0001; margin-bottom: 1em; padding: 1em; }
+    .events, .schema, .health { margin-top: 1em; }
+    h2 { margin-top: 0; }
+    pre { background: #eee; padding: 1em; border-radius: 4px; overflow-x: auto; }
+    .error { color: #b00; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Janus Observability Layer v1</h1>
+    <p>Minimal, read-only, real log-based observability for Janus runtimes</p>
+  </header>
+  <main>
+    <div id="app">
+      <p>Cargando información de runtimes...</p>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
