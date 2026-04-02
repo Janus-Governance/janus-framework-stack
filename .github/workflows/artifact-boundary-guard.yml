@@ -7,6 +7,9 @@ name: Janus Artifact Boundary Guard
       - "feature/**"
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   artifact-boundary-guard:
     name: artifact-boundary-guard
