@@ -1,0 +1,83 @@
+// Janus Observability Layer v1
+// Minimal, read-only, log-based observability
+
+const app = document.getElementById('app');
+
+
+const RUNTIMES = ["demo-node"];
+
+async function fetchJSON(url) {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) {
+    return null;
+  }
+}
+
+async function loadRuntimes() {
+  if (!RUNTIMES.length) {
+    app.innerHTML = '<p>No se encontraron runtimes.</p>';
+    return;
+  }
+  app.innerHTML = '';
+  await Promise.all(RUNTIMES.map(renderRuntime));
+}
+
+async function renderRuntime(runtime) {
+  const container = document.createElement('div');
+  container.className = 'runtime';
+  container.innerHTML = `<h2>Runtime: <code>${runtime}</code></h2>`;
+  app.appendChild(container);
+
+  // Load logs
+  const base = `../runtimes/${runtime}/logs/`;
+  const [audit, management, schema] = await Promise.all([
+    fetchJSON(base + 'AUDIT_LOG.json'),
+    fetchJSON(base + 'MANAGEMENT_LOG.json'),
+    fetchJSON(base + 'SCHEMA_LOG.json'),
+  ]);
+
+  // Events
+  const eventsDiv = document.createElement('div');
+  eventsDiv.className = 'events';
+  eventsDiv.innerHTML = '<h3>Eventos (AUDIT + MANAGEMENT)</h3>';
+  if (!audit && !management) {
+    eventsDiv.innerHTML += '<p class="error">No se pudieron cargar los logs de eventos.</p>';
+  } else {
+    const events = [];
+    if (Array.isArray(audit)) events.push(...audit);
+    if (Array.isArray(management)) events.push(...management);
+    events.sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
+    if (events) {
+      eventsDiv.innerHTML += '<pre>' + JSON.stringify(events, null, 2) + '</pre>';
+    }
+  }
+  container.appendChild(eventsDiv);
+
+  // Schema
+  const schemaDiv = document.createElement('div');
+  schemaDiv.className = 'schema';
+  schemaDiv.innerHTML = '<h3>Schema</h3>';
+  if (!schema) {
+    schemaDiv.innerHTML += '<p class="error">No se pudo cargar SCHEMA_LOG.json</p>';
+  if (schema) {
+    schemaDiv.innerHTML += '<pre>' + JSON.stringify(schema, null, 2) + '</pre>';
+  }
+  container.appendChild(schemaDiv);
+
+  // Health (structural)
+  const healthDiv = document.createElement('div');
+  healthDiv.className = 'health';
+  healthDiv.innerHTML = '<h3>Health estructural</h3>';
+  const health = [];
+  if (!audit) health.push('AUDIT_LOG.json ausente o inválido');
+  if (!management) health.push('MANAGEMENT_LOG.json ausente o inválido');
+  if (!schema) health.push('SCHEMA_LOG.json ausente o inválido');
+  if (!health.length) health.push('OK');
+  healthDiv.innerHTML += `<ul>${health.map(h => `<li>${h}</li>`).join('')}</ul>`;
+  container.appendChild(healthDiv);
+}
+
+window.addEventListener('DOMContentLoaded', loadRuntimes);
