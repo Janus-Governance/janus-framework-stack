@@ -1,5 +1,11 @@
 # Janus Runtime Model
 
+**This document is part of the Janus Framework Stack — the operational layer built on top of Janus Core.**
+
+**Canonical governance semantics and authority remain in [janus-governance-core](https://github.com/Janus-Governance/janus-governance-core).**
+
+Runtimes described here operationalize, but do not redefine, Janus Core semantics.
+
 ## 1. Purpose
 
 Janus defines a governance core; runtimes execute the model in concrete environments.
