@@ -1,4 +1,11 @@
-# Janus Governance Core
+# Janus Framework Stack
+
+
+**This repository is the Janus Framework Stack — the operational layer built on top of Janus Core.**
+
+**Canonical governance semantics and authority remain in [janus-governance-core](https://github.com/Janus-Governance/janus-governance-core).**
+
+This Framework Stack applies the Core through protocols, runtimes, demos, and observability tools.
 
 Official documentation entry point.
 
