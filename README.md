@@ -75,11 +75,6 @@ Janus introduces governance at the point where development happens:
 
 ---
 
-## Framework Specification
-
-→ [Framework Paper](LINK)
-
----
 ## Notes
 
 Janus is under active development and validation.

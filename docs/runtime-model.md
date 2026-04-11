@@ -10,7 +10,7 @@ Runtimes described here operationalize, but do not redefine, Janus Core semantic
 
 Janus defines a governance core; runtimes execute the model in concrete environments.
 
-## 2. Reference Runtime
+## 2. Reference Runtime (Non-Production)
 
 The current Node demo runtime is a reference implementation proving:
 - governance evaluation
