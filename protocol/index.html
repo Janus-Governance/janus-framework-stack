@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Janus Framework Protocols</title>
   <style>
+        a:hover,
+        a:focus {
+          text-decoration: underline;
+          text-underline-offset: 3px;
+        }
     body {
       background: #000;
       color: #fff;
@@ -25,26 +30,24 @@
       margin-bottom: 0.7em;
     }
     ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto 2em auto;
+      list-style: disc;
+      padding-left: 24px;
+      margin: 0 0 2em 0;
       max-width: 420px;
       text-align: left;
     }
     li {
-      margin-bottom: 1.1em;
-      background: #0a0a0a;
-      border: 1px solid #232323;
-      border-radius: 8px;
-      padding: 1em 1.2em;
+      margin-bottom: 0.7em;
+      background: none;
+      border: none;
+      border-radius: 0;
+      padding: 0;
     }
     a {
-      color: #ff6a00;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    a:hover, a:focus {
+      color: inherit;
       text-decoration: underline;
+      font-weight: 500;
+      transition: none;
     }
     .desc {
       color: #ccc;
@@ -57,16 +60,59 @@
   <div class="container">
     <h1>Janus Framework Protocols</h1>
     <div class="desc">Operational protocol stack for evidence, scope, and authority in Janus Framework. These protocols govern framework usage and workflow, not Janus Core semantics.</div>
+
+    <h2 style="color:#ff6a00; text-align:left; margin-top:2.2em;">Core Protocols</h2>
     <ul>
-      <li><a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/protocol/evidence-first.md">Evidence-First Workflow</a></li>
-      <li><a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/protocol/prompt-governance.md">Prompt Governance</a></li>
-      <li><a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/protocol/human-gate-rules.md">Human Gate Rules</a></li>
-      <li><a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/protocol/core-protection.md">Core Protection</a></li>
-      <li><a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/protocol/omission-response.md">Omission Response Protocol</a></li>
-      <li><a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/protocol/duplicate-prompt-guard.md">Duplicate Prompt Guard</a></li>
-      <li><a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/protocol/repo-structure-governance.md">Repo Structure Governance</a></li>
-      <li><a href="https://github.com/Janus-Governance/janus-framework-stack/blob/main/protocol/frontend-link-governance.md">Frontend Link Governance</a></li>
+      <li><a href="README.md">Protocol Overview</a></li>
+      <li><a href="evidence-first.md">Evidence-First Workflow</a></li>
+      <li><a href="prompt-governance.md">Prompt Governance</a></li>
+      <li><a href="human-gate-rules.md">Human Gate Rules</a></li>
+      <li><a href="core-protection.md">Core Protection</a></li>
+      <li><a href="omission-response.md">Omission Response Protocol</a></li>
+      <li><a href="duplicate-prompt-guard.md">Duplicate Prompt Guard</a></li>
+      <li><a href="repo-structure-governance.md">Repo Structure Governance</a></li>
+      <li><a href="frontend-link-governance.md">Frontend Link Governance</a></li>
+      <li><a href="runtime-intervention-rules.md">Runtime Intervention Rules</a></li>
+      <li><a href="visual-evidence-runtime.md">Visual Evidence Runtime</a></li>
     </ul>
+
+    <h2 style="color:#ff6a00; text-align:left; margin-top:2.2em;">Frontend Product Layer</h2>
+    <ul>
+      <li><a href="frontend-product-layer/index.md">Layer Overview</a></li>
+      <li><a href="frontend-product-layer/clarity-over-cleverness-v1.2.md">Clarity Over Cleverness v1.2</a></li>
+      <li><a href="frontend-product-layer/consistency-across-surfaces-v1.1.md">Consistency Across Surfaces v1.1</a></li>
+      <li><a href="frontend-product-layer/dependency-map.md">Dependency Map</a></li>
+      <li><a href="frontend-product-layer/empty-states-are-intentional-v1.1.md">Empty States Are Intentional v1.1</a></li>
+      <li><a href="frontend-product-layer/error-states-are-actionable-v1.1.md">Error States Are Actionable v1.1</a></li>
+      <li><a href="frontend-product-layer/evidence-first-ui-validation-v1.0.md">Evidence-First UI Validation v1.0</a></li>
+      <li><a href="frontend-product-layer/execution-flow.md">Execution Flow</a></li>
+      <li><a href="frontend-product-layer/feedback-before-navigation-v1.0.md">Feedback Before Navigation v1.0</a></li>
+      <li><a href="frontend-product-layer/loading-states-are-visible-v1.1.md">Loading States Are Visible v1.1</a></li>
+      <li><a href="frontend-product-layer/predictable-interaction-states-v1.0.md">Predictable Interaction States v1.0</a></li>
+      <li><a href="frontend-product-layer/progressive-disclosure-v1.1.md">Progressive Disclosure v1.1</a></li>
+      <li><a href="frontend-product-layer/user-surface-first-v1.2.md">User Surface First v1.2</a></li>
+    </ul>
+
+    <h2 style="color:#ff6a00; text-align:left; margin-top:2.2em;">Change Governance</h2>
+    <ul>
+      <li><a href="change-governance/baseline-rollback-v1.0.md">Baseline Rollback v1.0</a></li>
+      <li><a href="change-governance/index-v1.0.md">Change Governance Index v1.0</a></li>
+      <li><a href="change-governance/promotion-gate-v1.0.md">Promotion Gate v1.0</a></li>
+      <li><a href="change-governance/runtime-observability-v1.0.md">Runtime Observability v1.0</a></li>
+    </ul>
+
+    <h2 style="color:#ff6a00; text-align:left; margin-top:2.2em;">Meta Governance</h2>
+    <ul>
+      <li><a href="meta/exception-governance-v1.0.md">Exception Governance v1.0</a></li>
+      <li><a href="meta/protocol-conflict-resolution-v1.0.md">Protocol Conflict Resolution v1.0</a></li>
+    </ul>
+
+    <h2 style="color:#ff6a00; text-align:left; margin-top:2.2em;">Web Publishing</h2>
+    <ul>
+      <li><a href="web-publishing-governance/runbook.md">Web Publishing Runbook</a></li>
+      <li><a href="web-publishing-governance/web-publishing-governance.md">Web Publishing Governance</a></li>
+    </ul>
+
     <div class="desc" style="font-size:0.98em;">For full governance model, see <a href="https://janusgovernance.org">Janus Core</a>.</div>
   </div>
 </body>
