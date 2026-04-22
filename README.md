@@ -1,7 +1,16 @@
+
 # Janus Framework Stack
 
-Domain: https://framework.janusgovernance.org
+This repository is the Janus Framework Stack — the operational layer built on top of Janus Core.
 
+Canonical governance semantics and authority remain in:
+https://github.com/Janus-Governance/janus-governance-core
+
+This Framework Stack applies the Core through protocols, runtimes, demos, and observability tools.
+
+---
+
+Domain: https://framework.janusgovernance.org  
 Operational governance layer for AI-assisted development.
 
 → Start here: https://janusgovernance.org
@@ -66,11 +75,13 @@ Janus introduces governance at the point where development happens:
 
 ---
 
-## Framework Specification
+## Framework Paper
 
-→ [Framework Paper](LINK)
+- Read paper (v1.0) → https://zenodo.org/records/19239183
+- View repository context → docs/paper/README.md
 
 ---
+
 ## Notes
 
 Janus is under active development and validation.
