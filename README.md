@@ -75,6 +75,13 @@ Janus introduces governance at the point where development happens:
 
 ---
 
+## Framework Paper
+
+- Read paper (v1.0) → https://zenodo.org/records/19239183
+- View repository context → docs/paper/README.md
+
+---
+
 ## Notes
 
 Janus is under active development and validation.
