@@ -1,55 +1,38 @@
-# Janus Operational Protocol (Local)
+# Janus Framework Protocols
 
-This folder contains the operational protocol stack used to run Janus work locally, adjacent to (but separate from) Janus Core.
+This repository defines audit-layer protocols for governed systems.
 
-Stack entrypoint: evidence-first.md
+These protocols observe, verify, record, and classify.
+They do not execute systems, optimize behavior, or expose private construction logic.
 
-## Scope
-- Applies to local workflow execution: prompts, audits, evidence capture, intervention rules, and human gates.
-- Does not modify or redefine Janus Core or RFCs.
+## Current Protocols
 
+### Scheduler Methodology
 
-## Files
-- evidence-first.md
-- prompt-governance.md
-- human-gate-rules.md
-- core-protection.md
-- omission-response.md
-- repo-structure-governance.md
-- duplicate-prompt-guard.md
-- frontend-link-governance.md
-- runtime-intervention-rules.md
+Path: `protocol/scheduler/methodology_01.md`
 
-#
-# Protocol Layers
-#
-- **change-governance/**
-	Governs how changes are introduced, validated, observed, 
-	and reverted in the system. Ensures deterministic promotion, 
-	rollback safety, and runtime traceability.
+Purpose: observable task sequencing and transition audit.
 
-	Includes:
-	- Promotion Gate v1.0
-	- Baseline & Rollback v1.0
-	- Runtime Observability v1.0
+### Artifact Verification
 
+Path: `protocol/artifact-verification/methodology_01.md`
 
-## Protocol Stack Order
+Purpose: existence, path, structure, and content verification.
 
-- evidence-first.md
-- prompt-governance.md
-- human-gate-rules.md
-- core-protection.md
-- omission-response.md
-- repo-structure-governance.md
-- duplicate-prompt-guard.md
-- frontend-link-governance.md
-- runtime-intervention-rules.md
+### Evidence Model
 
-## Operating principle
-Prefer deterministic, repeatable steps:
-- declare intent
-- collect evidence
-- make minimal changes
-- validate
-- record outcomes
+Path: `protocol/evidence-model/methodology_01.md`
+
+Purpose: E+ / E- evidence representation and interpretation.
+
+## Existing Protocol Areas
+
+- `change-governance/`
+- `frontend-product-layer/`
+- `meta/`
+- `web-publishing-governance/`
+
+## Boundary
+
+Framework protocols define public audit behavior and interpretation rules.
+They do not modify Janus Core semantics or RFCs.
