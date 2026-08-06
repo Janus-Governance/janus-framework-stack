@@ -21,12 +21,15 @@ Operational governance layer for AI-assisted development.
 
 ### Path A — Python SDK (fastest)
 
+Run from the repository root. No package installation is required.
+
 ```bash
-pip install janus-governance
-janus run --case case-01-happy-path
+rm -f runtimes/python-sdk/janus/janus_events.jsonl
+python3 runtimes/python-sdk/quickstart.py
+python3 runtimes/python-sdk/janus/cli.py report
 ```
 
-Runs a governance evaluation and returns an E+ / E− verdict.
+Runs the repository-local Python SDK quickstart and then prints the governance report.
 
 ---
 
