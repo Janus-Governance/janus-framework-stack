@@ -1,12 +1,12 @@
 
 # Janus Framework Stack
 
-This repository is the Janus Framework Stack — the operational layer built on top of Janus Core.
+This repository is the Janus Framework Stack — non-normative interpretation and operational guidance built on top of Janus Core.
 
-Canonical governance semantics and authority remain in:
-https://github.com/Janus-Governance/janus-governance-core
+The normative source is Janus Core Lite v0.2 Draft:
+https://github.com/Janus-Governance/janus-governance-core/blob/main/core/lite/JANUS_CORE_LITE_v0.2.md
 
-This Framework Stack applies the Core through protocols, runtimes, demos, and observability tools.
+This Framework Stack interprets and applies the Core through protocols, runtimes, demos, and observability tools. It does not redefine Core semantics. Runtimes are technical implementations, and demos are illustrative; neither establishes conformity.
 
 ---
 
@@ -21,12 +21,15 @@ Operational governance layer for AI-assisted development.
 
 ### Path A — Python SDK (fastest)
 
+Run from the repository root. No package installation is required.
+
 ```bash
-pip install janus-governance
-janus run --case case-01-happy-path
+rm -f runtimes/python-sdk/janus/janus_events.jsonl
+python3 runtimes/python-sdk/quickstart.py
+python3 runtimes/python-sdk/janus/cli.py report
 ```
 
-Runs a governance evaluation and returns an E+ / E− verdict.
+Runs the repository-local Python SDK quickstart and then prints a governance report describing the E+ or E− evidence referenced by that illustrative case.
 
 ---
 
@@ -84,4 +87,4 @@ Janus introduces governance at the point where development happens:
 
 ## Notes
 
-Janus is under active development and validation.
+Janus is under active development and evaluation. No demo or test result by itself establishes Core conformity.

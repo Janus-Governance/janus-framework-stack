@@ -2,9 +2,9 @@
 
 Janus is a governance kernel and layered architecture for auditable systems operating in AI-assisted environments.
 
-This document defines the conceptual separation of layers in the Janus-Governance-Core repository.
+This non-normative Framework document describes the conceptual separation of layers. Janus Core Lite v0.2 Draft is the normative source.
 
-Normative note: where this document uses MUST/SHOULD/MAY, those statements apply to repository organization and interpretation rules. Core protocol requirements live under `core/`.
+Any MUST/SHOULD/MAY language here is Framework guidance and does not add to or alter Core requirements.
 
 ## Layer separation
 
@@ -15,7 +15,7 @@ Janus is structured as a set of layers with explicit responsibilities.
 Location: `core/`
 
 Core defines:
-- Canonical terms and semantics (aligned with `docs/glossary.md`)
+- Canonical terms and semantics defined by Janus Core Lite v0.2
 - Protocols and policy primitives
 - Canonical log types and event identifiers (e.g., `MANAGEMENT_LOG`, `SCHEMA_LOG`, `AUDIT_LOG`, `OMISSION_DETECTED`)
 
@@ -65,20 +65,20 @@ SDKs:
 
 The repository separates normative specifications from supporting material.
 
-- `docs/`: Working documentation for this repository. The glossary is normative for term meanings.
+- `docs/`: Non-normative Framework interpretation and guidance, subordinate to Janus Core Lite v0.2.
 - `papers/`: Background analysis and research notes. Non-normative by default.
 - `studies/`: Experiments, logs, and results. Non-normative by default.
 - `philosophy/`: Canon and essays. Non-normative by default.
 
-If a document outside `core/` or `docs/` is intended to be normative, it MUST explicitly declare its normative scope.
+No document in this Framework repository supersedes or extends the normative Core.
 
-## Semantic stability rule (glossary-first)
+## Semantic stability rule (Core-first)
 
-`docs/glossary.md` is the source of semantic truth for named terms used across layers.
+Janus Core Lite v0.2 is the source of semantic truth. `docs/glossary.md` is a subordinate, non-normative aid.
 
 Rules:
-1) A term used in Core, Framework, Runtimes, Adapters, or SDK text MUST have a stable meaning anchored in the glossary.
-2) Changing a glossary definition MUST trigger review of dependent documents.
-3) When meaning conflicts are discovered, the glossary MUST be updated first, then dependent specifications updated to match.
+1) Framework, Runtime, Adapter, and SDK terminology should remain aligned with the Core.
+2) Changing the Framework glossary should trigger review of dependent Framework documents.
+3) When a conflict is discovered, the Framework material should be corrected to match the Core.
 
 This rule is intended to keep semantics stable while allowing implementations to evolve independently.
