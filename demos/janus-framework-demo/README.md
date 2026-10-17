@@ -4,7 +4,7 @@
 
 This is a **private, local-only** demo framework inside the Janus Governance Core repository.
 
-It is intentionally isolated under `demos/janus-framework-demo/` and is meant to validate a **reusable micro-layer** for future products (starting with a trivia-like domain, later other domains).
+It is intentionally isolated under `demos/janus-framework-demo/` and is meant to exercise a **reusable micro-layer** for future products (starting with a trivia-like domain, later other domains).
 
 ## Why it does not affect Janus Core
 
@@ -43,4 +43,4 @@ From this folder:
 - `src/janus/`: typed event model, evidence record builder, validation gates, audit writer
 - `src/domain/`: generic domain entity + use case (CSV import)
 - `src/adapters/`: swap points for persistence/output (local file now; Supabase later)
-- `scripts/test-demo.ts`: proves the flow works deterministically
+- `scripts/test-demo.ts`: demonstrates the flow deterministically for its fixture

@@ -1,6 +1,6 @@
-# Janus Governance Core
+# Janus Framework Documentation
 
-Janus Governance Core defines stack-agnostic specifications for systems that require traceable decisions, explicit evidence handling, and audit-ready records.
+This documentation provides non-normative Framework interpretation and guidance. The normative source is Janus Core Lite v0.2 Draft; Framework documentation and examples do not redefine it.
 
 ---
 
@@ -14,8 +14,7 @@ Janus Governance Core defines stack-agnostic specifications for systems that req
 
 ## Core specification
 
-- Core Lite v0.1  
-  `core/lite/JANUS_CORE_LITE_v0.1.md`
+- [Core Lite v0.2 Draft (normative source)](https://github.com/Janus-Governance/janus-governance-core/blob/main/core/lite/JANUS_CORE_LITE_v0.2.md)
 
 ---
 

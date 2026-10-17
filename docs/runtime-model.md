@@ -2,7 +2,7 @@
 
 **This document is part of the Janus Framework Stack — the operational layer built on top of Janus Core.**
 
-**Canonical governance semantics and authority remain in [janus-governance-core](https://github.com/Janus-Governance/janus-governance-core).**
+**The normative source is [Janus Core Lite v0.2 Draft](https://github.com/Janus-Governance/janus-governance-core/blob/main/core/lite/JANUS_CORE_LITE_v0.2.md).**
 
 Runtimes described here operationalize, but do not redefine, Janus Core semantics.
 
@@ -12,10 +12,10 @@ Janus defines a governance core; runtimes execute the model in concrete environm
 
 ## 2. Reference Runtime (Non-Production)
 
-The current Node demo runtime is a reference implementation proving:
+The current Node demo runtime is a technical reference implementation illustrating:
 - governance evaluation
 - omission detection
-- evidence model (E+ / E-)
+- evidence model (E+ / E−)
 - audit writer boundary
 - deterministic rebuild
 
@@ -23,7 +23,7 @@ Location:
 
 runtimes/demo-node/
 
-It is intentionally minimal and designed for demonstration.
+It is intentionally minimal and designed for demonstration. It does not establish conformity and does not redefine the Core.
 
 ## 3. Future Runtimes
 

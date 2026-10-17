@@ -3,6 +3,8 @@
 Minimal append-only event logger for Janus governance demos.
 No external dependencies.
 
+This is an illustrative technical implementation, not a conformity claim. Its ASCII output labels (`E-`) are implementation-specific legacy labels; Janus Core Lite v0.2 uses E− and remains the normative source.
+
 ---
 
 ## Quick Start

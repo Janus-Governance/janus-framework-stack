@@ -43,8 +43,8 @@
       <a class="back" href="/runtimes/">Back to runtimes</a>
       <h1>Janus Governance Core — Demo Runtime (Node)</h1>
 <p>Reference Runtime: v0.1.0</p>
-<p>This minimal demo proves:</p>
-<p>1) Append domain activity to <code>MANAGEMENT_LOG</code> 2) Read <code>SCHEMA_LOG</code> as reference 3) Form evidence as <code>E+</code> / <code>E-</code> 4) Run a governance evaluation layer (beyond omission detection) 5) Write canonical governance events to <code>AUDIT_LOG</code> only through an Audit Writer boundary</p>
+<p>This minimal demo demonstrates:</p>
+<p>1) Append domain activity to <code>MANAGEMENT_LOG</code> 2) Read <code>SCHEMA_LOG</code> as reference 3) Form evidence as <code>E+</code> / <code>E−</code> 4) Run a governance evaluation layer (beyond omission detection) 5) Write governance events to <code>AUDIT_LOG</code> only through an Audit Writer boundary</p>
 <h2>Run</h2>
 <p>From this folder:</p>
 <ul>
@@ -56,11 +56,11 @@
 </ul>
 <h2>Expected behavior</h2>
 <ul>
-<li>Flow A (omission): appends <code>CHANGE_PROPOSED</code>, evaluates, emits <code>OMISSION_DETECTED</code> with <code>E-</code> into <code>AUDIT_LOG</code></li>
+<li>Flow A (omission): appends <code>CHANGE_PROPOSED</code>, evaluates, emits <code>OMISSION_DETECTED</code> with <code>E−</code> into <code>AUDIT_LOG</code></li>
 <li>Flow B (approved): appends <code>CHANGE_PROPOSED</code> + <code>HUMAN_DECISION</code>, evaluates, emits <code>HUMAN_DECISION_REGISTERED</code> with <code>E+</code> into <code>AUDIT_LOG</code></li>
 <li>Flow C (rebuild): rebuilds a minimal state only from logs and prints a summary object</li>
 </ul>
-<p>This runtime is a reference proof of the Janus Core Lite model, not a production runtime.</p>
+<p>This runtime is a non-production technical illustration. It does not establish conformity with Janus Core Lite v0.2 and does not redefine the Core.</p>
     </main>
   </body>
 </html>
